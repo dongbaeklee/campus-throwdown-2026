@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>카드뉴스 시리즈 1 — 대회 소개</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#111;padding:40px 20px;font-family:'Noto Sans KR',sans-serif;display:flex;flex-direction:column;align-items:center;gap:48px}
+
+.card{width:540px;height:540px;position:relative;overflow:hidden;border-radius:4px;flex-shrink:0}
+
+/* ─── CARD 1: 표지 ─── */
+.c1{background:#0a0a0a}
+.c1-noise{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:.6}
+.c1-line-v{position:absolute;left:48px;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,#ff5722 30%,#ff5722 70%,transparent)}
+.c1-line-h{position:absolute;bottom:100px;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,#ff5722 20%,#333 60%,transparent)}
+.c1-content{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:48px 48px 48px 72px}
+.c1-tag{font-size:11px;font-weight:700;letter-spacing:.2em;color:#ff5722;text-transform:uppercase;margin-bottom:16px}
+.c1-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:76px;line-height:.9;color:#fff;text-transform:uppercase;letter-spacing:-.02em}
+.c1-title span{color:#ff5722}
+.c1-sub{margin-top:20px;font-size:15px;color:#888;line-height:1.6;font-weight:500}
+.c1-bottom{position:absolute;bottom:32px;left:72px;right:48px;display:flex;justify-content:space-between;align-items:center}
+.c1-date{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:13px;color:#444;letter-spacing:.08em;font-weight:700}
+.c1-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:13px;color:#333;font-weight:700;letter-spacing:.05em}
+.c1-dot{position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,87,34,.18) 0%,transparent 70%)}
+
+/* ─── CARD 2: 크로스핏이란 ─── */
+.c2{background:#0d0d0d;display:flex;flex-direction:column;padding:48px}
+.c2-eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;color:#ff5722;text-transform:uppercase;margin-bottom:12px}
+.c2-q{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:54px;line-height:.95;color:#fff;text-transform:uppercase;margin-bottom:28px}
+.c2-items{display:flex;flex-direction:column;gap:16px;flex:1}
+.c2-item{display:flex;gap:16px;align-items:flex-start}
+.c2-icon{width:36px;height:36px;border-radius:6px;background:rgba(255,87,34,.12);border:1px solid rgba(255,87,34,.2);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.c2-text-wrap{display:flex;flex-direction:column;gap:2px}
+.c2-item-title{font-size:14px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.c2-item-desc{font-size:12px;color:#666;line-height:1.6}
+.c2-footer{margin-top:auto;padding-top:20px;border-top:1px solid #1e1e1e;display:flex;justify-content:space-between;align-items:center}
+.c2-page{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:12px;color:#333;font-weight:700}
+.c2-acct{font-size:12px;color:#ff5722;font-weight:700}
+
+/* ─── CARD 3: 왜 참가해야 하나 ─── */
+.c3{background:#0a0a0a}
+.c3-accent-bar{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(to right,#ff5722,rgba(255,87,34,0))}
+.c3-content{position:absolute;inset:0;padding:48px;display:flex;flex-direction:column}
+.c3-eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;color:#ff5722;text-transform:uppercase;margin-bottom:12px}
+.c3-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:50px;line-height:.95;color:#fff;text-transform:uppercase;margin-bottom:24px}
+.c3-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1}
+.c3-box{background:#111;border:1px solid #1e1e1e;border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:8px}
+.c3-box-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:36px;font-weight:900;color:#ff5722;line-height:1}
+.c3-box-label{font-size:13px;font-weight:700;color:#fff}
+.c3-box-desc{font-size:11px;color:#555;line-height:1.5}
+.c3-footer{margin-top:16px;display:flex;justify-content:space-between;align-items:center}
+.c3-page{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:12px;color:#333;font-weight:700}
+.c3-acct{font-size:12px;color:#ff5722;font-weight:700}
+
+/* ─── CARD 4: 신청 방법 ─── */
+.c4{background:#0d0d0d;display:flex;flex-direction:column;padding:48px}
+.c4-eyebrow{font-size:11px;font-weight:700;letter-spacing:.2em;color:#ff5722;text-transform:uppercase;margin-bottom:12px}
+.c4-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:50px;line-height:.95;color:#fff;text-transform:uppercase;margin-bottom:28px}
+.c4-steps{display:flex;flex-direction:column;gap:0;flex:1}
+.c4-step{display:flex;gap:16px;align-items:flex-start;padding:14px 0;border-bottom:1px solid #1a1a1a;position:relative}
+.c4-step:last-child{border-bottom:none}
+.c4-step-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:28px;font-weight:900;color:#ff5722;line-height:1;min-width:24px}
+.c4-step-body{display:flex;flex-direction:column;gap:2px}
+.c4-step-title{font-size:14px;font-weight:700;color:#fff}
+.c4-step-desc{font-size:12px;color:#555;line-height:1.5}
+.c4-cta-box{margin-top:auto;background:rgba(255,87,34,.08);border:1px solid rgba(255,87,34,.2);border-radius:4px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.c4-cta-url{font-size:12px;color:#ff5722;font-weight:700}
+.c4-cta-arrow{font-size:16px;color:#ff5722}
+.c4-footer{margin-top:12px;display:flex;justify-content:space-between}
+.c4-page{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:12px;color:#333;font-weight:700}
+.c4-acct{font-size:12px;color:#ff5722;font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- CARD 1 -->
+<div class="card c1" id="card1">
+  <div class="c1-noise"></div>
+  <div class="c1-line-v"></div>
+  <div class="c1-line-h"></div>
+  <div class="c1-dot"></div>
+  <div class="c1-content">
+    <div class="c1-tag">Campus Throwdown 2026 — 대회 소개</div>
+    <div class="c1-title">이런<br>대회<span>야</span></div>
+    <div class="c1-sub">전국 대학생 크로스핏 대회<br>처음 듣는 사람을 위한 소개</div>
+  </div>
+  <div class="c1-bottom">
+    <div class="c1-date">OCT 03 — OCT 09 · 서울 올림픽공원</div>
+    <div class="c1-num">01 / 04</div>
+  </div>
+</div>
+
+<!-- CARD 2 -->
+<div class="card c2" id="card2">
+  <div class="c2-eyebrow">Campus Throwdown 2026</div>
+  <div class="c2-q">크로스핏이<br>뭔지<br>몰라도 OK</div>
+  <div class="c2-items">
+    <div class="c2-item">
+      <div class="c2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5722" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 8H2"/><path d="M22 8h-4"/><path d="M6 16H2"/><path d="M22 16h-4"/><line x1="6" y1="12" x2="18" y2="12"/></svg></div>
+      <div class="c2-text-wrap">
+        <div class="c2-item-title">크로스핏은 종합 기능 운동</div>
+        <div class="c2-item-desc">역도, 체조, 유산소를 결합한 고강도 운동입니다. 특정 종목 선수가 아니어도 누구나 할 수 있어요.</div>
+      </div>
+    </div>
+    <div class="c2-item">
+      <div class="c2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5722" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div class="c2-text-wrap">
+        <div class="c2-item-title">초급부 / 중급부로 나눠집니다</div>
+        <div class="c2-item-desc">경력 1년 미만이면 초급부. 오래 했다면 중급부. 실력에 맞게 출전하면 됩니다.</div>
+      </div>
+    </div>
+    <div class="c2-item">
+      <div class="c2-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff5722" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="c2-text-wrap">
+        <div class="c2-item-title">혼자도, 팀으로도</div>
+        <div class="c2-item-desc">개인전 4부문 외에 3인 팀전도 있습니다. 친구 2명 데려오면 팀 구성 완료.</div>
+      </div>
+    </div>
+  </div>
+  <div class="c2-footer">
+    <div class="c2-page">02 / 04</div>
+    <div class="c2-acct">@campus_throwdown2026</div>
+  </div>
+</div>
+
+<!-- CARD 3 -->
+<div class="card c3" id="card3">
+  <div class="c3-accent-bar"></div>
+  <div class="c3-content">
+    <div class="c3-eyebrow">이 대회에 나오는 이유</div>
+    <div class="c3-title">숫자로<br>보는 대회</div>
+    <div class="c3-grid">
+      <div class="c3-box">
+        <div class="c3-box-num">100</div>
+        <div class="c3-box-label">선착순 100명</div>
+        <div class="c3-box-desc">전국 대학생 중 딱 100명만 참가합니다</div>
+      </div>
+      <div class="c3-box">
+        <div class="c3-box-num">5</div>
+        <div class="c3-box-label">5개 부문</div>
+        <div class="c3-box-desc">남성 초급·중급, 여성 초급·중급, 팀전</div>
+      </div>
+      <div class="c3-box">
+        <div class="c3-box-num">2</div>
+        <div class="c3-box-label">2일간 진행</div>
+        <div class="c3-box-desc">10월 3일 & 9일, 각각 개최</div>
+      </div>
+      <div class="c3-box">
+        <div class="c3-box-num">3만</div>
+        <div class="c3-box-label">개인 참가비</div>
+        <div class="c3-box-desc">30,000원. 팀전은 3인 90,000원</div>
+      </div>
+    </div>
+    <div class="c3-footer">
+      <div class="c3-page">03 / 04</div>
+      <div class="c3-acct">@campus_throwdown2026</div>
+    </div>
+  </div>
+</div>
+
+<!-- CARD 4 -->
+<div class="card c4" id="card4">
+  <div class="c4-eyebrow">신청은 이렇게</div>
+  <div class="c4-title">4단계로<br>끝납니다</div>
+  <div class="c4-steps">
+    <div class="c4-step">
+      <div class="c4-step-num">01</div>
+      <div class="c4-step-body">
+        <div class="c4-step-title">신청 페이지 접속</div>
+        <div class="c4-step-desc">crossfit-registration.vercel.app — 인스타 프로필 링크</div>
+      </div>
+    </div>
+    <div class="c4-step">
+      <div class="c4-step-num">02</div>
+      <div class="c4-step-body">
+        <div class="c4-step-title">개인전 / 팀전 선택 후 폼 작성</div>
+        <div class="c4-step-desc">이름, 학교, 부문, 연락처 입력 (3분 이내)</div>
+      </div>
+    </div>
+    <div class="c4-step">
+      <div class="c4-step-num">03</div>
+      <div class="c4-step-body">
+        <div class="c4-step-title">7일 이내 참가비 입금</div>
+        <div class="c4-step-desc">신한은행 110-367-511137 · 예금주 이도형</div>
+      </div>
+    </div>
+    <div class="c4-step">
+      <div class="c4-step-num">04</div>
+      <div class="c4-step-body">
+        <div class="c4-step-title">재학증명서 이메일 제출</div>
+        <div class="c4-step-desc">campusthrowdown2026@gmail.com — 입금 확인 후 최종 접수 완료</div>
+      </div>
+    </div>
+  </div>
+  <div class="c4-cta-box">
+    <div class="c4-cta-url">crossfit-registration.vercel.app</div>
+    <div class="c4-cta-arrow">→</div>
+  </div>
+  <div class="c4-footer">
+    <div class="c4-page">04 / 04</div>
+    <div class="c4-acct">@campus_throwdown2026</div>
+  </div>
+</div>
+
+</body>
+</html>
