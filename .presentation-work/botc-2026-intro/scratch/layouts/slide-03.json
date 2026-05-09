@@ -1,0 +1,2346 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/n4jkip",
+    "id": "n4jkip",
+    "slide": 3,
+    "layoutId": "16351305-0ec5-424d-9bd5-ea506398efc2",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "8b6ddca7-17a4-4c4d-b909-7cc919e81860",
+    "masterLayoutName": "Master",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "+mn-lt"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "16351305-0ec5-424d-9bd5-ea506398efc2",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "8b6ddca7-17a4-4c4d-b909-7cc919e81860",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "8b6ddca7-17a4-4c4d-b909-7cc919e81860",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y1kre1w7",
+      "id": "1",
+      "name": "bg",
+      "bbox": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.2"
+      },
+      "geometry": "rect",
+      "fillColor": "#F4F5F9"
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9s36hcrm",
+      "id": "2",
+      "name": "top-band",
+      "bbox": [
+        0,
+        0,
+        1920,
+        14
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.1"
+      },
+      "geometry": "rect",
+      "fillColor": "#E8471D"
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7adsji5",
+      "id": "3",
+      "name": "eyebrow",
+      "bbox": [
+        96,
+        72,
+        96,
+        22
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.0"
+      },
+      "geometry": "rect",
+      "text": "캠퍼스 스로우다운 2026",
+      "textPreview": "캠퍼스 스로우다운 2026",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "캠퍼스 스로우다운"
+          },
+          {
+            "index": 2,
+            "text": "2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "캠퍼스 스로우다운 2026",
+          "runs": [
+            {
+              "index": 1,
+              "text": "캠퍼스 스로우다운 2026",
+              "fontSize": 18,
+              "color": "#E8471D",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rytsvu9k",
+      "id": "4",
+      "name": "title",
+      "bbox": [
+        96,
+        120,
+        766,
+        140
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.3"
+      },
+      "geometry": "rect",
+      "text": "참가자가 바로 이해하는 운영 정보",
+      "textPreview": "참가자가 바로 이해하는 운영 정보",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "fontSize": 58,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "참가자가 바로 이해하는 운영"
+          },
+          {
+            "index": 2,
+            "text": "정보"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "참가자가 바로 이해하는 운영 정보",
+          "runs": [
+            {
+              "index": 1,
+              "text": "참가자가 바로 이해하는 운영 정보",
+              "fontSize": 58,
+              "color": "#071030",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yd0z6103",
+      "id": "5",
+      "name": "subtitle",
+      "bbox": [
+        96,
+        284,
+        538,
+        30
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.2"
+      },
+      "geometry": "rect",
+      "text": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다.",
+      "textPreview": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다.",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "fontSize": 24,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다.",
+          "runs": [
+            {
+              "index": 1,
+              "text": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다.",
+              "fontSize": 24,
+              "color": "#475569"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/90je9cvi",
+      "id": "6",
+      "bbox": [
+        96,
+        362,
+        544,
+        22
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.1"
+      },
+      "geometry": "rect",
+      "text": "STEP 01",
+      "textPreview": "STEP 01",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "STEP 01"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "STEP 01",
+          "runs": [
+            {
+              "index": 1,
+              "text": "STEP 01",
+              "fontSize": 18,
+              "color": "#E8471D",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gfmlkjm1",
+      "id": "7",
+      "bbox": [
+        96,
+        402,
+        544,
+        54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.0"
+      },
+      "geometry": "rect",
+      "text": "2026.08.31",
+      "textPreview": "2026.08.31",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "fontSize": 44,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2026.08.31"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2026.08.31",
+          "runs": [
+            {
+              "index": 1,
+              "text": "2026.08.31",
+              "fontSize": 44,
+              "color": "#071030",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/r65wjudg",
+      "id": "8",
+      "bbox": [
+        96,
+        472,
+        544,
+        5
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.0.2"
+      },
+      "geometry": "rect",
+      "fillColor": "#E8471D",
+      "lineColor": "#E8471D",
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ylc7u54z",
+      "id": "9",
+      "bbox": [
+        96,
+        494,
+        544,
+        70
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.0.3"
+      },
+      "geometry": "rect",
+      "text": "참가 신청 마감\n선착순 200명 기준",
+      "textPreview": "참가 신청 마감 | 선착순 200명 기준",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "fontSize": 29,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "참가 신청 마감"
+          },
+          {
+            "index": 2,
+            "text": "선착순 200명 기준"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "참가 신청 마감",
+          "runs": [
+            {
+              "index": 1,
+              "text": "참가 신청 마감",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "선착순 200명 기준",
+          "runs": [
+            {
+              "index": 1,
+              "text": "선착순 200명 기준",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/g7adsji5",
+      "id": "10",
+      "bbox": [
+        688,
+        362,
+        544,
+        22
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.0"
+      },
+      "geometry": "rect",
+      "text": "STEP 02",
+      "textPreview": "STEP 02",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "STEP 02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "STEP 02",
+          "runs": [
+            {
+              "index": 1,
+              "text": "STEP 02",
+              "fontSize": 18,
+              "color": "#1A3A8F",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9s36hcrm",
+      "id": "11",
+      "bbox": [
+        688,
+        402,
+        544,
+        54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.1"
+      },
+      "geometry": "rect",
+      "text": "2026.09.12",
+      "textPreview": "2026.09.12",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "fontSize": 44,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2026.09.12"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2026.09.12",
+          "runs": [
+            {
+              "index": 1,
+              "text": "2026.09.12",
+              "fontSize": 44,
+              "color": "#071030",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/y1kre1w7",
+      "id": "12",
+      "bbox": [
+        688,
+        472,
+        544,
+        5
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.2"
+      },
+      "geometry": "rect",
+      "fillColor": "#1A3A8F",
+      "lineColor": "#1A3A8F",
+      "lineWidth": 0
+    },
+    {
+      "order": 13,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rmhk3q5o",
+      "id": "13",
+      "bbox": [
+        688,
+        494,
+        544,
+        70
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.1.3"
+      },
+      "geometry": "rect",
+      "text": "예선전\n오전 9시 시작",
+      "textPreview": "예선전 | 오전 9시 시작",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "fontSize": 29,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "예선전"
+          },
+          {
+            "index": 2,
+            "text": "오전 9시 시작"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "예선전",
+          "runs": [
+            {
+              "index": 1,
+              "text": "예선전",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "오전 9시 시작",
+          "runs": [
+            {
+              "index": 1,
+              "text": "오전 9시 시작",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gfmlkjm1",
+      "id": "14",
+      "bbox": [
+        1280,
+        362,
+        544,
+        22
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.0"
+      },
+      "geometry": "rect",
+      "text": "STEP 03",
+      "textPreview": "STEP 03",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "fontSize": 18,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "STEP 03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "STEP 03",
+          "runs": [
+            {
+              "index": 1,
+              "text": "STEP 03",
+              "fontSize": 18,
+              "color": "#D81B60",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/90je9cvi",
+      "id": "15",
+      "bbox": [
+        1280,
+        402,
+        544,
+        54
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.1"
+      },
+      "geometry": "rect",
+      "text": "2026.09.13",
+      "textPreview": "2026.09.13",
+      "resolvedFontSize": 44,
+      "resolvedTextStyle": {
+        "fontSize": 44,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "2026.09.13"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "2026.09.13",
+          "runs": [
+            {
+              "index": 1,
+              "text": "2026.09.13",
+              "fontSize": 44,
+              "color": "#071030",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/yd0z6103",
+      "id": "16",
+      "bbox": [
+        1280,
+        472,
+        544,
+        5
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.2"
+      },
+      "geometry": "rect",
+      "fillColor": "#D81B60",
+      "lineColor": "#D81B60",
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/rytsvu9k",
+      "id": "17",
+      "bbox": [
+        1280,
+        494,
+        544,
+        70
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.1.2.3"
+      },
+      "geometry": "rect",
+      "text": "결선 및 시상식\n오전 10시 시작",
+      "textPreview": "결선 및 시상식 | 오전 10시 시작",
+      "resolvedFontSize": 29,
+      "resolvedTextStyle": {
+        "fontSize": 29,
+        "typeface": "+mn-lt",
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "결선 및 시상식"
+          },
+          {
+            "index": 2,
+            "text": "오전 10시 시작"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "결선 및 시상식",
+          "runs": [
+            {
+              "index": 1,
+              "text": "결선 및 시상식",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "text": "오전 10시 시작",
+          "runs": [
+            {
+              "index": 1,
+              "text": "오전 10시 시작",
+              "fontSize": 29,
+              "color": "#111827"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gr2p8nqx",
+      "id": "18",
+      "name": "footer-brand",
+      "bbox": [
+        96,
+        988,
+        238,
+        20
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.2.0"
+      },
+      "geometry": "rect",
+      "text": "캠퍼스 스로우다운 2026",
+      "textPreview": "캠퍼스 스로우다운 2026",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "캠퍼스 스로우다운 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "캠퍼스 스로우다운 2026",
+          "runs": [
+            {
+              "index": 1,
+              "text": "캠퍼스 스로우다운 2026",
+              "fontSize": 16,
+              "color": "#6B7280",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order": 19,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9cvixcze",
+      "id": "19",
+      "name": "page",
+      "bbox": [
+        1806,
+        988,
+        18,
+        20
+      ],
+      "composeSource": {
+        "run": 1,
+        "path": "0.1.2.1"
+      },
+      "geometry": "rect",
+      "text": "03",
+      "textPreview": "03",
+      "resolvedFontSize": 16,
+      "resolvedTextStyle": {
+        "fontSize": 16,
+        "typeface": "+mn-lt",
+        "bold": true,
+        "alignment": "left"
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "03"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "03",
+          "runs": [
+            {
+              "index": 1,
+              "text": "03",
+              "fontSize": 16,
+              "color": "#E8471D",
+              "bold": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "composeRuns": [
+    {
+      "index": 1,
+      "frame": {
+        "left": 0,
+        "top": 0,
+        "width": 1920,
+        "height": 1080
+      },
+      "baseUnit": 8,
+      "root": {
+        "path": "0",
+        "kind": "layers",
+        "name": "slide",
+        "requestedSize": {
+          "width": {
+            "mode": "fill",
+            "value": 1
+          },
+          "height": {
+            "mode": "fill",
+            "value": 1
+          }
+        },
+        "intrinsicSize": {
+          "width": 0,
+          "height": 0
+        },
+        "frame": {
+          "left": 0,
+          "top": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "children": [
+          {
+            "path": "0.0",
+            "kind": "layers",
+            "requestedSize": {
+              "width": {
+                "mode": "fill",
+                "value": 1
+              },
+              "height": {
+                "mode": "fill",
+                "value": 1
+              }
+            },
+            "intrinsicSize": {
+              "width": 0,
+              "height": 14
+            },
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "children": [
+              {
+                "path": "0.0.0",
+                "kind": "shape",
+                "name": "bg",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "fill",
+                    "value": 1
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 0,
+                  "height": 0
+                },
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                },
+                "snappedFrame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                },
+                "children": [],
+                "geometry": "rect",
+                "element": {
+                  "aid": "sh/y1kre1w7",
+                  "id": "1",
+                  "kind": "shape"
+                }
+              },
+              {
+                "path": "0.0.1",
+                "kind": "shape",
+                "name": "top-band",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "fixed",
+                    "value": 14
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 0,
+                  "height": 14
+                },
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 14
+                },
+                "snappedFrame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 14
+                },
+                "children": [],
+                "geometry": "rect",
+                "element": {
+                  "aid": "sh/9s36hcrm",
+                  "id": "2",
+                  "kind": "shape"
+                }
+              }
+            ],
+            "padding": {
+              "top": 0,
+              "right": 0,
+              "bottom": 0,
+              "left": 0
+            },
+            "alignItems": "stretch",
+            "justifyItems": "stretch",
+            "contentFrame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "items": [
+              {
+                "path": "0.0.0",
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 1080
+                }
+              },
+              {
+                "path": "0.0.1",
+                "frame": {
+                  "left": 0,
+                  "top": 0,
+                  "width": 1920,
+                  "height": 14
+                }
+              }
+            ]
+          },
+          {
+            "path": "0.1",
+            "kind": "column",
+            "name": "root",
+            "requestedSize": {
+              "width": {
+                "mode": "fill",
+                "value": 1
+              },
+              "height": {
+                "mode": "fill",
+                "value": 1
+              }
+            },
+            "intrinsicSize": {
+              "width": 192,
+              "height": 431.2
+            },
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            },
+            "children": [
+              {
+                "path": "0.1.0",
+                "kind": "column",
+                "name": "title-stack",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "hug"
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 766.86,
+                  "height": 172
+                },
+                "frame": {
+                  "left": 96,
+                  "top": 72,
+                  "width": 1728,
+                  "height": 241.6
+                },
+                "children": [
+                  {
+                    "path": "0.1.0.0",
+                    "kind": "text",
+                    "name": "eyebrow",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "hug"
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 96.06,
+                      "height": 21.6
+                    },
+                    "frame": {
+                      "left": 96,
+                      "top": 72,
+                      "width": 96.06,
+                      "height": 21.6
+                    },
+                    "snappedFrame": {
+                      "left": 96,
+                      "top": 72,
+                      "width": 96,
+                      "height": 22
+                    },
+                    "children": [],
+                    "text": "캠퍼스 스로우다운 2026",
+                    "transform": "none",
+                    "element": {
+                      "aid": "sh/g7adsji5",
+                      "id": "3",
+                      "kind": "shape"
+                    }
+                  },
+                  {
+                    "path": "0.1.0.1",
+                    "kind": "text",
+                    "name": "title",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "wrap",
+                        "max": 1320
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 766.86,
+                      "height": 69.6
+                    },
+                    "frame": {
+                      "left": 96,
+                      "top": 119.6,
+                      "width": 766.86,
+                      "height": 139.2
+                    },
+                    "snappedFrame": {
+                      "left": 96,
+                      "top": 120,
+                      "width": 766,
+                      "height": 140
+                    },
+                    "children": [],
+                    "text": "참가자가 바로 이해하는 운영 정보",
+                    "transform": "none",
+                    "element": {
+                      "aid": "sh/rytsvu9k",
+                      "id": "4",
+                      "kind": "shape"
+                    }
+                  },
+                  {
+                    "path": "0.1.0.2",
+                    "kind": "text",
+                    "name": "subtitle",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "wrap",
+                        "max": 1280
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 537.51,
+                      "height": 28.8
+                    },
+                    "frame": {
+                      "left": 96,
+                      "top": 284.8,
+                      "width": 537.51,
+                      "height": 28.8
+                    },
+                    "snappedFrame": {
+                      "left": 96,
+                      "top": 284,
+                      "width": 538,
+                      "height": 30
+                    },
+                    "children": [],
+                    "text": "홍보 문구는 짧게, 운영 정보는 흔들리지 않게 고정합니다.",
+                    "transform": "none",
+                    "element": {
+                      "aid": "sh/yd0z6103",
+                      "id": "5",
+                      "kind": "shape"
+                    }
+                  }
+                ],
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "gap": 26,
+                "effectiveGap": 26,
+                "justifyOffset": 0,
+                "align": "start",
+                "justify": "start",
+                "contentFrame": {
+                  "left": 96,
+                  "top": 72,
+                  "width": 1728,
+                  "height": 241.6
+                },
+                "items": [
+                  {
+                    "path": "0.1.0.0",
+                    "frame": {
+                      "left": 96,
+                      "top": 72,
+                      "width": 96.06,
+                      "height": 21.6
+                    }
+                  },
+                  {
+                    "path": "0.1.0.1",
+                    "frame": {
+                      "left": 96,
+                      "top": 119.6,
+                      "width": 766.86,
+                      "height": 139.2
+                    }
+                  },
+                  {
+                    "path": "0.1.0.2",
+                    "frame": {
+                      "left": 96,
+                      "top": 284.8,
+                      "width": 537.51,
+                      "height": 28.8
+                    }
+                  }
+                ]
+              },
+              {
+                "path": "0.1.1",
+                "kind": "grid",
+                "name": "schedule-root",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "fill",
+                    "value": 1
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 96,
+                  "height": 0
+                },
+                "frame": {
+                  "left": 96,
+                  "top": 361.6,
+                  "width": 1728,
+                  "height": 579.2
+                },
+                "children": [
+                  {
+                    "path": "0.1.1.0",
+                    "kind": "column",
+                    "name": "step-1",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "fill",
+                        "value": 1
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 0,
+                      "height": 203
+                    },
+                    "frame": {
+                      "left": 96,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.0.0",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 21.6
+                        },
+                        "frame": {
+                          "left": 96,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        },
+                        "snappedFrame": {
+                          "left": 96,
+                          "top": 362,
+                          "width": 544,
+                          "height": 22
+                        },
+                        "children": [],
+                        "text": "STEP 01",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/90je9cvi",
+                          "id": "6",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.1",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 52.8
+                        },
+                        "frame": {
+                          "left": 96,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        },
+                        "snappedFrame": {
+                          "left": 96,
+                          "top": 402,
+                          "width": 544,
+                          "height": 54
+                        },
+                        "children": [],
+                        "text": "2026.08.31",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/gfmlkjm1",
+                          "id": "7",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.2",
+                        "kind": "rule",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "fixed",
+                            "value": 5
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 5
+                        },
+                        "frame": {
+                          "left": 96,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "snappedFrame": {
+                          "left": 96,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "children": [],
+                        "weight": 5,
+                        "element": {
+                          "aid": "sh/r65wjudg",
+                          "id": "8",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.3",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 69.6
+                        },
+                        "frame": {
+                          "left": 96,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        },
+                        "snappedFrame": {
+                          "left": 96,
+                          "top": 494,
+                          "width": 544,
+                          "height": 70
+                        },
+                        "children": [],
+                        "text": "참가 신청 마감\n선착순 200명 기준",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/ylc7u54z",
+                          "id": "9",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 18,
+                    "effectiveGap": 18,
+                    "justifyOffset": 0,
+                    "align": "start",
+                    "justify": "start",
+                    "contentFrame": {
+                      "left": 96,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.0.0",
+                        "frame": {
+                          "left": 96,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.1",
+                        "frame": {
+                          "left": 96,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.2",
+                        "frame": {
+                          "left": 96,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        }
+                      },
+                      {
+                        "path": "0.1.1.0.3",
+                        "frame": {
+                          "left": 96,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "path": "0.1.1.1",
+                    "kind": "column",
+                    "name": "step-2",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "fill",
+                        "value": 1
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 0,
+                      "height": 203
+                    },
+                    "frame": {
+                      "left": 688,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.1.0",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 21.6
+                        },
+                        "frame": {
+                          "left": 688,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        },
+                        "snappedFrame": {
+                          "left": 688,
+                          "top": 362,
+                          "width": 544,
+                          "height": 22
+                        },
+                        "children": [],
+                        "text": "STEP 02",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/g7adsji5",
+                          "id": "10",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.1",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 52.8
+                        },
+                        "frame": {
+                          "left": 688,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        },
+                        "snappedFrame": {
+                          "left": 688,
+                          "top": 402,
+                          "width": 544,
+                          "height": 54
+                        },
+                        "children": [],
+                        "text": "2026.09.12",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/9s36hcrm",
+                          "id": "11",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.2",
+                        "kind": "rule",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "fixed",
+                            "value": 5
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 5
+                        },
+                        "frame": {
+                          "left": 688,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "snappedFrame": {
+                          "left": 688,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "children": [],
+                        "weight": 5,
+                        "element": {
+                          "aid": "sh/y1kre1w7",
+                          "id": "12",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.3",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 69.6
+                        },
+                        "frame": {
+                          "left": 688,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        },
+                        "snappedFrame": {
+                          "left": 688,
+                          "top": 494,
+                          "width": 544,
+                          "height": 70
+                        },
+                        "children": [],
+                        "text": "예선전\n오전 9시 시작",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/rmhk3q5o",
+                          "id": "13",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 18,
+                    "effectiveGap": 18,
+                    "justifyOffset": 0,
+                    "align": "start",
+                    "justify": "start",
+                    "contentFrame": {
+                      "left": 688,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.1.0",
+                        "frame": {
+                          "left": 688,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.1",
+                        "frame": {
+                          "left": 688,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.2",
+                        "frame": {
+                          "left": 688,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        }
+                      },
+                      {
+                        "path": "0.1.1.1.3",
+                        "frame": {
+                          "left": 688,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "path": "0.1.1.2",
+                    "kind": "column",
+                    "name": "step-3",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "fill",
+                        "value": 1
+                      },
+                      "height": {
+                        "mode": "fill",
+                        "value": 1
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 0,
+                      "height": 203
+                    },
+                    "frame": {
+                      "left": 1280,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "children": [
+                      {
+                        "path": "0.1.1.2.0",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 21.6
+                        },
+                        "frame": {
+                          "left": 1280,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        },
+                        "snappedFrame": {
+                          "left": 1280,
+                          "top": 362,
+                          "width": 544,
+                          "height": 22
+                        },
+                        "children": [],
+                        "text": "STEP 03",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/gfmlkjm1",
+                          "id": "14",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.1",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 52.8
+                        },
+                        "frame": {
+                          "left": 1280,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        },
+                        "snappedFrame": {
+                          "left": 1280,
+                          "top": 402,
+                          "width": 544,
+                          "height": 54
+                        },
+                        "children": [],
+                        "text": "2026.09.13",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/90je9cvi",
+                          "id": "15",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.2",
+                        "kind": "rule",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "fixed",
+                            "value": 5
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 5
+                        },
+                        "frame": {
+                          "left": 1280,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "snappedFrame": {
+                          "left": 1280,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        },
+                        "children": [],
+                        "weight": 5,
+                        "element": {
+                          "aid": "sh/yd0z6103",
+                          "id": "16",
+                          "kind": "shape"
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.3",
+                        "kind": "text",
+                        "requestedSize": {
+                          "width": {
+                            "mode": "fill",
+                            "value": 1
+                          },
+                          "height": {
+                            "mode": "hug"
+                          }
+                        },
+                        "intrinsicSize": {
+                          "width": 0,
+                          "height": 69.6
+                        },
+                        "frame": {
+                          "left": 1280,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        },
+                        "snappedFrame": {
+                          "left": 1280,
+                          "top": 494,
+                          "width": 544,
+                          "height": 70
+                        },
+                        "children": [],
+                        "text": "결선 및 시상식\n오전 10시 시작",
+                        "transform": "none",
+                        "element": {
+                          "aid": "sh/rytsvu9k",
+                          "id": "17",
+                          "kind": "shape"
+                        }
+                      }
+                    ],
+                    "padding": {
+                      "top": 0,
+                      "right": 0,
+                      "bottom": 0,
+                      "left": 0
+                    },
+                    "gap": 18,
+                    "effectiveGap": 18,
+                    "justifyOffset": 0,
+                    "align": "start",
+                    "justify": "start",
+                    "contentFrame": {
+                      "left": 1280,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    },
+                    "items": [
+                      {
+                        "path": "0.1.1.2.0",
+                        "frame": {
+                          "left": 1280,
+                          "top": 361.6,
+                          "width": 544,
+                          "height": 21.6
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.1",
+                        "frame": {
+                          "left": 1280,
+                          "top": 401.2,
+                          "width": 544,
+                          "height": 52.8
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.2",
+                        "frame": {
+                          "left": 1280,
+                          "top": 472,
+                          "width": 544,
+                          "height": 5
+                        }
+                      },
+                      {
+                        "path": "0.1.1.2.3",
+                        "frame": {
+                          "left": 1280,
+                          "top": 495,
+                          "width": 544,
+                          "height": 69.6
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "columnGap": 48,
+                "rowGap": 0,
+                "alignItems": "stretch",
+                "justifyItems": "stretch",
+                "contentFrame": {
+                  "left": 96,
+                  "top": 361.6,
+                  "width": 1728,
+                  "height": 579.2
+                },
+                "columns": [
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  },
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  },
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  }
+                ],
+                "rows": [
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  }
+                ],
+                "autoRows": "auto",
+                "resolvedRows": [
+                  {
+                    "mode": "fr",
+                    "value": 1
+                  }
+                ],
+                "columnSizes": [
+                  544,
+                  544,
+                  544
+                ],
+                "rowSizes": [
+                  579.2
+                ],
+                "cells": [
+                  {
+                    "path": "0.1.1.0",
+                    "column": 0,
+                    "row": 0,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 96,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    }
+                  },
+                  {
+                    "path": "0.1.1.1",
+                    "column": 1,
+                    "row": 0,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 688,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    }
+                  },
+                  {
+                    "path": "0.1.1.2",
+                    "column": 2,
+                    "row": 0,
+                    "columnSpan": 1,
+                    "rowSpan": 1,
+                    "cellFrame": {
+                      "left": 1280,
+                      "top": 361.6,
+                      "width": 544,
+                      "height": 579.2
+                    }
+                  }
+                ]
+              },
+              {
+                "path": "0.1.2",
+                "kind": "row",
+                "name": "footer",
+                "requestedSize": {
+                  "width": {
+                    "mode": "fill",
+                    "value": 1
+                  },
+                  "height": {
+                    "mode": "hug"
+                  }
+                },
+                "intrinsicSize": {
+                  "width": 255.52,
+                  "height": 19.2
+                },
+                "frame": {
+                  "left": 96,
+                  "top": 988.8,
+                  "width": 1728,
+                  "height": 19.2
+                },
+                "children": [
+                  {
+                    "path": "0.1.2.0",
+                    "kind": "text",
+                    "name": "footer-brand",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "hug"
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 237.72,
+                      "height": 19.2
+                    },
+                    "frame": {
+                      "left": 96,
+                      "top": 988,
+                      "width": 237.72,
+                      "height": 20
+                    },
+                    "snappedFrame": {
+                      "left": 96,
+                      "top": 988,
+                      "width": 238,
+                      "height": 20
+                    },
+                    "children": [],
+                    "text": "캠퍼스 스로우다운 2026",
+                    "transform": "none",
+                    "element": {
+                      "aid": "sh/gr2p8nqx",
+                      "id": "18",
+                      "kind": "shape"
+                    }
+                  },
+                  {
+                    "path": "0.1.2.1",
+                    "kind": "text",
+                    "name": "page",
+                    "requestedSize": {
+                      "width": {
+                        "mode": "hug"
+                      },
+                      "height": {
+                        "mode": "hug"
+                      }
+                    },
+                    "intrinsicSize": {
+                      "width": 17.8,
+                      "height": 19.2
+                    },
+                    "frame": {
+                      "left": 1806.2,
+                      "top": 988,
+                      "width": 17.8,
+                      "height": 20
+                    },
+                    "snappedFrame": {
+                      "left": 1806,
+                      "top": 988,
+                      "width": 18,
+                      "height": 20
+                    },
+                    "children": [],
+                    "text": "03",
+                    "transform": "none",
+                    "element": {
+                      "aid": "sh/9cvixcze",
+                      "id": "19",
+                      "kind": "shape"
+                    }
+                  }
+                ],
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "gap": 0,
+                "effectiveGap": 1472.48,
+                "justifyOffset": 0,
+                "align": "center",
+                "justify": "between",
+                "contentFrame": {
+                  "left": 96,
+                  "top": 988.8,
+                  "width": 1728,
+                  "height": 19.2
+                },
+                "items": [
+                  {
+                    "path": "0.1.2.0",
+                    "frame": {
+                      "left": 96,
+                      "top": 988,
+                      "width": 237.72,
+                      "height": 20
+                    }
+                  },
+                  {
+                    "path": "0.1.2.1",
+                    "frame": {
+                      "left": 1806.2,
+                      "top": 988,
+                      "width": 17.8,
+                      "height": 20
+                    }
+                  }
+                ]
+              }
+            ],
+            "padding": {
+              "top": 72,
+              "right": 96,
+              "bottom": 72,
+              "left": 96
+            },
+            "gap": 48,
+            "effectiveGap": 48,
+            "justifyOffset": 0,
+            "align": "start",
+            "justify": "start",
+            "contentFrame": {
+              "left": 96,
+              "top": 72,
+              "width": 1728,
+              "height": 936
+            },
+            "items": [
+              {
+                "path": "0.1.0",
+                "frame": {
+                  "left": 96,
+                  "top": 72,
+                  "width": 1728,
+                  "height": 241.6
+                }
+              },
+              {
+                "path": "0.1.1",
+                "frame": {
+                  "left": 96,
+                  "top": 361.6,
+                  "width": 1728,
+                  "height": 579.2
+                }
+              },
+              {
+                "path": "0.1.2",
+                "frame": {
+                  "left": 96,
+                  "top": 988.8,
+                  "width": 1728,
+                  "height": 19.2
+                }
+              }
+            ]
+          }
+        ],
+        "padding": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "alignItems": "stretch",
+        "justifyItems": "stretch",
+        "contentFrame": {
+          "left": 0,
+          "top": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "items": [
+          {
+            "path": "0.0",
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            }
+          },
+          {
+            "path": "0.1",
+            "frame": {
+              "left": 0,
+              "top": 0,
+              "width": 1920,
+              "height": 1080
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

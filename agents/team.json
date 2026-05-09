@@ -1,0 +1,122 @@
+{
+  "project": {
+    "name": "캠퍼스 스로우다운 2026",
+    "domain": "전국 대학생 크로스핏 대회 참가 신청 페이지",
+    "primary_goal": "대학생 참가자 모집과 현장 관람 관심도를 높인다.",
+    "timezone": "Asia/Seoul",
+    "audience": [
+      "크로스핏을 하고 있는 대학생",
+      "운동 동아리 및 체육 관련 학과 학생",
+      "대학 스포츠 이벤트 관람에 관심 있는 학생"
+    ],
+    "brand_voice": [
+      "에너지 있고 경쟁적인 톤",
+      "대학생에게 부담 없이 다가가는 문장",
+      "신뢰감 있는 운영 안내"
+    ],
+    "hard_facts": {
+      "event_dates": "2026-09-12 ~ 2026-09-13",
+      "registration_deadline": "2026-08-31",
+      "venue": "서울 올림픽공원 체조경기장",
+      "capacity": "선착순 200명",
+      "fee": "30,000원",
+      "host": "전국 대학생 크로스핏 연합회",
+      "contact_email": "crossfit2026@university.ac.kr",
+      "sns": "@campus_throwdown2026"
+    }
+  },
+  "workflow": [
+    "planning_lead",
+    "marketing_lead",
+    "operations_lead",
+    "finance_lead",
+    "campaign_strategist",
+    "copywriter",
+    "channel_planner",
+    "partnership_manager",
+    "conversion_analyst",
+    "ops_reviewer"
+  ],
+  "agents": [
+    {
+      "id": "planning_lead",
+      "name": "기획 리드",
+      "mission": "대회 목표, 참가자 경험, 실행 우선순위를 하나의 운영 가능한 기획안으로 정리한다.",
+      "inputs": ["프로젝트 핵심 정보", "이번 실행 목표", "현재 준비 상태"],
+      "outputs": ["목표 정의", "핵심 의사결정", "마일스톤", "부서별 요청사항"],
+      "prompt_file": "prompts/planning_lead.md"
+    },
+    {
+      "id": "marketing_lead",
+      "name": "마케팅 리드",
+      "mission": "모집 목표를 달성하기 위한 메시지, 채널, 콘텐츠 우선순위를 정하고 세부 홍보 에이전트를 조율한다.",
+      "inputs": ["타깃", "브랜드 보이스", "모집 마감일", "기획 리드 산출물"],
+      "outputs": ["마케팅 목표", "핵심 메시지", "채널 전략", "콘텐츠 요청 브리프"],
+      "prompt_file": "prompts/marketing_lead.md"
+    },
+    {
+      "id": "operations_lead",
+      "name": "운영 리드",
+      "mission": "신청, 문의, 현장 운영, 리스크 관리를 실제 실행 체크리스트로 만든다.",
+      "inputs": ["확정 사실", "신청 흐름", "운영 리스크", "마케팅 산출물"],
+      "outputs": ["운영 체크리스트", "리스크 대응", "문의 응대 기준", "검수 필요 항목"],
+      "prompt_file": "prompts/operations_lead.md"
+    },
+    {
+      "id": "finance_lead",
+      "name": "재무 리드",
+      "mission": "참가비 수익, 예산, 비용 리스크, 정산 기준을 보수적으로 점검한다.",
+      "inputs": ["참가비", "모집 인원", "예산 가정", "운영 계획"],
+      "outputs": ["수익 추정", "예산 항목", "손익 리스크", "정산 체크리스트"],
+      "prompt_file": "prompts/finance_lead.md"
+    },
+    {
+      "id": "campaign_strategist",
+      "name": "캠페인 전략가",
+      "mission": "홍보 목표를 메시지, 타깃, 일정으로 쪼개 실행 가능한 캠페인 뼈대를 만든다.",
+      "inputs": ["프로젝트 핵심 정보", "홍보 목표", "모집 현황"],
+      "outputs": ["캠페인 각도 3개", "핵심 메시지", "2주 실행 플랜"],
+      "prompt_file": "prompts/campaign_strategist.md"
+    },
+    {
+      "id": "copywriter",
+      "name": "카피라이터",
+      "mission": "랜딩 페이지, SNS, 포스터에 바로 쓸 수 있는 짧고 강한 한국어 문안을 만든다.",
+      "inputs": ["캠페인 전략", "브랜드 보이스", "대회 사실 정보"],
+      "outputs": ["SNS 캡션", "CTA 문구", "포스터 헤드라인", "FAQ 보강 문구"],
+      "prompt_file": "prompts/copywriter.md"
+    },
+    {
+      "id": "channel_planner",
+      "name": "채널 플래너",
+      "mission": "인스타그램, 대학 커뮤니티, 동아리 단톡, 포스터 등 채널별 실행안을 설계한다.",
+      "inputs": ["타깃", "카피 초안", "모집 마감일"],
+      "outputs": ["채널별 게시 일정", "소재 포맷", "성과 지표"],
+      "prompt_file": "prompts/channel_planner.md"
+    },
+    {
+      "id": "partnership_manager",
+      "name": "제휴 담당자",
+      "mission": "대학교 동아리, 박스, 학생회, 브랜드 스폰서에게 보낼 제휴 제안을 만든다.",
+      "inputs": ["주관 대학", "대회 가치", "홍보 목표"],
+      "outputs": ["제휴 타깃 리스트", "DM/메일 초안", "제안 혜택"],
+      "prompt_file": "prompts/partnership_manager.md"
+    },
+    {
+      "id": "conversion_analyst",
+      "name": "전환 분석가",
+      "mission": "신청 페이지에서 이탈을 줄이고 신청 완료율을 높이는 개선안을 제안한다.",
+      "inputs": ["랜딩 페이지 구조", "신청 폼", "CTA"],
+      "outputs": ["전환 리스크", "A/B 테스트 아이디어", "측정 이벤트"],
+      "prompt_file": "prompts/conversion_analyst.md"
+    },
+    {
+      "id": "ops_reviewer",
+      "name": "운영 검수자",
+      "mission": "홍보 문구와 신청 흐름이 사실 정보, 일정, 환불 안내와 어긋나지 않는지 검수한다.",
+      "inputs": ["전체 산출물", "대회 사실 정보"],
+      "outputs": ["수정 필요 항목", "운영 리스크", "최종 게시 체크리스트"],
+      "prompt_file": "prompts/ops_reviewer.md"
+    }
+  ]
+}

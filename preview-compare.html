@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디자인 비교 — 현재 vs 런포트 스타일</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700;1,800;1,900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#1a1a1a;font-family:'Noto Sans KR',sans-serif}
+
+.compare-wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+@media(max-width:900px){.compare-wrap{grid-template-columns:1fr}}
+
+.label-bar{padding:12px 20px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;position:sticky;top:0;z-index:50}
+.label-bar.a{background:#1e1e1e;color:#888;border-bottom:2px solid #333}
+.label-bar.b{background:#1a1610;color:#c8a96e;border-bottom:2px solid #c8a96e}
+
+/* ════════════════════════
+   CURRENT STYLE (A)
+════════════════════════ */
+.side-a{background:#0a0a0a}
+
+/* NAV */
+.a-nav{background:rgba(10,10,10,.95);border-bottom:1px solid rgba(255,255,255,.07);padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.a-logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:18px;text-transform:uppercase;color:#fff;letter-spacing:1px}
+.a-logo span{color:#ff5722}
+.a-navbtn{background:#ff5722;color:#fff;padding:8px 18px;font-size:12px;font-weight:700;border-radius:4px}
+
+/* HERO */
+.a-hero{padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.a-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,87,34,.08) 0%,transparent 60%)}
+.a-year{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:13px;font-weight:700;color:#ff5722;letter-spacing:.2em;text-transform:uppercase;margin-bottom:8px}
+.a-h1{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:72px;line-height:.9;color:#fff;text-transform:uppercase;margin-bottom:12px}
+.a-h1 span{color:#ff5722}
+.a-sub{font-size:14px;color:#71717a;margin-bottom:24px}
+.a-badge{display:inline-block;border:1px solid rgba(255,87,34,.3);color:#ff5722;font-size:11px;font-weight:700;padding:5px 12px;border-radius:20px;letter-spacing:.05em;margin-bottom:24px}
+.a-countdown{display:inline-flex;gap:12px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.1);padding:14px 20px;border-radius:12px;margin-bottom:28px}
+.a-cd-block{display:flex;flex-direction:column;align-items:center;min-width:40px}
+.a-cd-num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:#ff5722;line-height:1}
+.a-cd-label{font-size:9px;color:#71717a;text-transform:uppercase;margin-top:2px}
+.a-cd-sep{font-size:24px;color:#3f3f46;padding-bottom:14px}
+.a-btns{display:flex;flex-direction:column;gap:10px;align-items:center}
+.a-btn-p{background:#ff5722;color:#fff;padding:14px 32px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;display:inline-block}
+.a-btn-o{border:1px solid rgba(255,255,255,.2);color:#fff;padding:14px 32px;border-radius:6px;font-size:15px;font-weight:700;text-decoration:none;display:inline-block}
+
+/* INFOBAR */
+.a-infobar{background:#111;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:20px 24px}
+.a-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.a-info-item{display:flex;flex-direction:column;gap:2px}
+.a-info-label{font-size:10px;color:#71717a;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.a-info-value{font-size:13px;font-weight:700;color:#fff}
+
+/* CATEGORIES */
+.a-cats{padding:48px 24px}
+.a-section-label{font-size:11px;font-weight:700;letter-spacing:.2em;color:#ff5722;text-transform:uppercase;text-align:center;margin-bottom:6px}
+.a-section-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:40px;color:#fff;text-transform:uppercase;text-align:center;margin-bottom:4px}
+.a-section-line{width:40px;height:2px;background:#ff5722;margin:12px auto 28px}
+.a-cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.a-cat-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.a-cat-icon{font-size:24px}
+.a-cat-name{font-size:15px;font-weight:700;color:#fff}
+.a-cat-desc{font-size:11px;color:#71717a;line-height:1.5}
+.a-cat-price{font-size:12px;font-weight:700;color:#ff5722;border:1px solid rgba(255,87,34,.3);padding:4px 10px;border-radius:12px;align-self:flex-start}
+
+
+/* ════════════════════════
+   RUNPORT STYLE (B)
+════════════════════════ */
+.side-b{background:#080806}
+
+/* NAV */
+.b-nav{background:rgba(8,8,6,.95);border-bottom:1px solid rgba(200,169,110,.1);padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.b-logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:18px;text-transform:uppercase;color:#fff;letter-spacing:1px}
+.b-logo span{color:#c8a96e}
+.b-navbtn{background:transparent;color:#c8a96e;padding:7px 18px;font-size:12px;font-weight:700;border-radius:3px;border:1px solid rgba(200,169,110,.4)}
+
+/* HERO */
+.b-hero{padding:80px 24px 60px;text-align:center;position:relative;overflow:hidden}
+.b-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(200,169,110,.06) 0%,transparent 60%)}
+.b-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,#080806,transparent)}
+.b-year{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:12px;font-weight:700;color:#c8a96e;letter-spacing:.25em;text-transform:uppercase;margin-bottom:8px}
+.b-h1{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:72px;line-height:.9;color:#f5f0e8;text-transform:uppercase;margin-bottom:12px}
+.b-h1 span{color:#c8a96e}
+.b-sub{font-size:14px;color:#6b6558;margin-bottom:24px}
+.b-badge{display:inline-block;border:1px solid rgba(200,169,110,.25);color:#c8a96e;font-size:11px;font-weight:700;padding:5px 12px;border-radius:2px;letter-spacing:.05em;margin-bottom:24px}
+.b-countdown{display:inline-flex;gap:12px;background:rgba(200,169,110,.04);border:1px solid rgba(200,169,110,.12);padding:14px 20px;border-radius:3px;margin-bottom:28px}
+.b-cd-block{display:flex;flex-direction:column;align-items:center;min-width:40px}
+.b-cd-num{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;color:#c8a96e;line-height:1}
+.b-cd-label{font-size:9px;color:#6b6558;text-transform:uppercase;margin-top:2px}
+.b-cd-sep{font-size:24px;color:#2a2820;padding-bottom:14px}
+.b-btns{display:flex;flex-direction:column;gap:10px;align-items:center}
+.b-btn-p{background:#c8a96e;color:#080806;padding:14px 32px;border-radius:3px;font-size:15px;font-weight:900;text-decoration:none;display:inline-block;letter-spacing:.05em}
+.b-btn-o{border:1px solid rgba(200,169,110,.25);color:#c8a96e;padding:14px 32px;border-radius:3px;font-size:15px;font-weight:700;text-decoration:none;display:inline-block}
+
+/* INFOBAR */
+.b-infobar{background:#0d0c09;border-top:1px solid rgba(200,169,110,.08);border-bottom:1px solid rgba(200,169,110,.08);padding:20px 24px}
+.b-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.b-info-item{display:flex;flex-direction:column;gap:2px}
+.b-info-label{font-size:10px;color:#6b6558;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.b-info-value{font-size:13px;font-weight:700;color:#f5f0e8}
+
+/* CATEGORIES - FULLBLEED STYLE */
+.b-cats{padding:48px 0}
+.b-section-label{font-size:11px;font-weight:700;letter-spacing:.25em;color:#c8a96e;text-transform:uppercase;text-align:center;margin-bottom:6px}
+.b-section-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:40px;color:#f5f0e8;text-transform:uppercase;text-align:center;margin-bottom:4px}
+.b-section-line{width:40px;height:1px;background:#c8a96e;margin:12px auto 28px}
+.b-cat-list{display:flex;flex-direction:column;gap:2px}
+.b-cat-item{position:relative;height:100px;overflow:hidden;display:flex;align-items:center;justify-content:space-between;padding:0 28px;cursor:pointer;transition:height .3s ease}
+.b-cat-item:hover{height:120px}
+.b-cat-bg{position:absolute;inset:0;transition:opacity .3s}
+.b-cat-item.m1 .b-cat-bg{background:linear-gradient(135deg,#1a1410 0%,#0f0d09 100%)}
+.b-cat-item.m2 .b-cat-bg{background:linear-gradient(135deg,#131210 0%,#0a0908 100%)}
+.b-cat-item.f1 .b-cat-bg{background:linear-gradient(135deg,#141318 0%,#0d0c10 100%)}
+.b-cat-item.f2 .b-cat-bg{background:linear-gradient(135deg,#101214 0%,#090b0d 100%)}
+.b-cat-item.team .b-cat-bg{background:linear-gradient(135deg,#1a1508 0%,#0f0c05 100%)}
+.b-cat-item::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(200,169,110,.06) 0%,transparent 60%);pointer-events:none}
+.b-cat-item:hover::after{background:linear-gradient(to right,rgba(200,169,110,.12) 0%,transparent 60%)}
+.b-cat-bar{position:absolute;left:0;top:0;bottom:0;width:3px;background:#c8a96e;opacity:.5;transition:opacity .2s}
+.b-cat-item:hover .b-cat-bar{opacity:1}
+.b-cat-left{position:relative;z-index:1;display:flex;flex-direction:column;gap:4px}
+.b-cat-division{font-size:10px;font-weight:700;letter-spacing:.15em;color:#c8a96e;text-transform:uppercase}
+.b-cat-name{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:28px;color:#f5f0e8;text-transform:uppercase;line-height:1}
+.b-cat-desc{font-size:11px;color:#6b6558;line-height:1.4}
+.b-cat-right{position:relative;z-index:1;text-align:right;display:flex;flex-direction:column;gap:4px;align-items:flex-end}
+.b-cat-price{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:22px;color:#c8a96e}
+.b-cat-arrow{font-size:16px;color:rgba(200,169,110,.3)}
+.b-cat-divider{height:1px;background:rgba(200,169,110,.06);margin:0}
+
+/* DIFF TAG */
+.diff-tag{display:inline-block;background:rgba(200,169,110,.15);color:#c8a96e;font-size:10px;font-weight:700;padding:3px 8px;border-radius:2px;letter-spacing:.05em;margin-left:6px;vertical-align:middle}
+</style>
+</head>
+<body>
+
+<div class="compare-wrap">
+
+  <!-- ═══ SIDE A: 현재 ═══ -->
+  <div class="side-a">
+    <div class="label-bar a">현재 디자인 (오렌지 #ff5722)</div>
+
+    <div class="a-nav">
+      <div class="a-logo">Campus <span>T</span>D</div>
+      <div class="a-navbtn">신청하기</div>
+    </div>
+
+    <div class="a-hero">
+      <div class="a-year">2026</div>
+      <h1 class="a-h1">캠퍼스<br><span>스로우</span><br>다운</h1>
+      <p class="a-sub">전국 대학생 크로스핏 대회</p>
+      <div class="a-badge">🔥 선착순 100명</div><br>
+      <div class="a-countdown">
+        <div class="a-cd-block"><span class="a-cd-num">149</span><span class="a-cd-label">일</span></div>
+        <span class="a-cd-sep">:</span>
+        <div class="a-cd-block"><span class="a-cd-num">14</span><span class="a-cd-label">시간</span></div>
+        <span class="a-cd-sep">:</span>
+        <div class="a-cd-block"><span class="a-cd-num">32</span><span class="a-cd-label">분</span></div>
+        <span class="a-cd-sep">:</span>
+        <div class="a-cd-block"><span class="a-cd-num">07</span><span class="a-cd-label">초</span></div>
+      </div>
+      <div class="a-btns">
+        <a class="a-btn-p" href="#">참가 신청 →</a>
+        <a class="a-btn-o" href="#">대회 안내 →</a>
+      </div>
+    </div>
+
+    <div class="a-infobar">
+      <div class="a-info-grid">
+        <div class="a-info-item"><div class="a-info-label">대회 일정</div><div class="a-info-value">2026.10.03 — 10.09</div></div>
+        <div class="a-info-item"><div class="a-info-label">장소</div><div class="a-info-value">서울 올림픽공원</div></div>
+        <div class="a-info-item"><div class="a-info-label">모집</div><div class="a-info-value">선착순 100명</div></div>
+        <div class="a-info-item"><div class="a-info-label">주관</div><div class="a-info-value">대학생 크로스핏 연합회</div></div>
+      </div>
+    </div>
+
+    <div class="a-cats">
+      <p class="a-section-label">Categories</p>
+      <h2 class="a-section-title">참가 부문</h2>
+      <div class="a-section-line"></div>
+      <div class="a-cat-grid">
+        <div class="a-cat-card">
+          <div class="a-cat-icon">🏋️</div>
+          <div class="a-cat-name">남성 초급</div>
+          <div class="a-cat-desc">경력 1년 미만<br>기본 동작 WOD</div>
+          <div class="a-cat-price">30,000원</div>
+        </div>
+        <div class="a-cat-card">
+          <div class="a-cat-icon">🏋️</div>
+          <div class="a-cat-name">남성 중급</div>
+          <div class="a-cat-desc">경력 1년 이상<br>올림픽 리프팅 WOD</div>
+          <div class="a-cat-price">30,000원</div>
+        </div>
+        <div class="a-cat-card">
+          <div class="a-cat-icon">🏋️‍♀️</div>
+          <div class="a-cat-name">여성 초급</div>
+          <div class="a-cat-desc">경력 1년 미만<br>기본 동작 WOD</div>
+          <div class="a-cat-price">30,000원</div>
+        </div>
+        <div class="a-cat-card">
+          <div class="a-cat-icon">🏋️‍♀️</div>
+          <div class="a-cat-name">여성 중급</div>
+          <div class="a-cat-desc">경력 1년 이상<br>올림픽 리프팅 WOD</div>
+          <div class="a-cat-price">30,000원</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SIDE B: 런포트 스타일 ═══ -->
+  <div class="side-b">
+    <div class="label-bar b">런포트 스타일 (어스톤 #c8a96e)</div>
+
+    <div class="b-nav">
+      <div class="b-logo">Campus <span>T</span>D</div>
+      <div class="b-navbtn">신청하기</div>
+    </div>
+
+    <div class="b-hero">
+      <div class="b-year">2026</div>
+      <h1 class="b-h1">캠퍼스<br><span>스로우</span><br>다운</h1>
+      <p class="b-sub">전국 대학생 크로스핏 대회</p>
+      <div class="b-badge">선착순 100명</div><br>
+      <div class="b-countdown">
+        <div class="b-cd-block"><span class="b-cd-num">149</span><span class="b-cd-label">일</span></div>
+        <span class="b-cd-sep">:</span>
+        <div class="b-cd-block"><span class="b-cd-num">14</span><span class="b-cd-label">시간</span></div>
+        <span class="b-cd-sep">:</span>
+        <div class="b-cd-block"><span class="b-cd-num">32</span><span class="b-cd-label">분</span></div>
+        <span class="b-cd-sep">:</span>
+        <div class="b-cd-block"><span class="b-cd-num">07</span><span class="b-cd-label">초</span></div>
+      </div>
+      <div class="b-btns">
+        <a class="b-btn-p" href="#">참가 신청 →</a>
+        <a class="b-btn-o" href="#">대회 안내 →</a>
+      </div>
+    </div>
+
+    <div class="b-infobar">
+      <div class="b-info-grid">
+        <div class="b-info-item"><div class="b-info-label">대회 일정</div><div class="b-info-value">2026.10.03 — 10.09</div></div>
+        <div class="b-info-item"><div class="b-info-label">장소</div><div class="b-info-value">서울 올림픽공원</div></div>
+        <div class="b-info-item"><div class="b-info-label">모집</div><div class="b-info-value">선착순 100명</div></div>
+        <div class="b-info-item"><div class="b-info-label">주관</div><div class="b-info-value">대학생 크로스핏 연합회</div></div>
+      </div>
+    </div>
+
+    <div class="b-cats">
+      <p class="b-section-label">Categories</p>
+      <h2 class="b-section-title">참가 부문</h2>
+      <div class="b-section-line"></div>
+
+      <div class="b-cat-list">
+        <div class="b-cat-item m1">
+          <div class="b-cat-bg"></div><div class="b-cat-bar"></div>
+          <div class="b-cat-left">
+            <div class="b-cat-division">남성 · Male</div>
+            <div class="b-cat-name">초급</div>
+            <div class="b-cat-desc">경력 1년 미만 · 기본 동작 WOD</div>
+          </div>
+          <div class="b-cat-right">
+            <div class="b-cat-price">30,000원</div>
+            <div class="b-cat-arrow">→</div>
+          </div>
+        </div>
+        <div class="b-cat-divider"></div>
+        <div class="b-cat-item m2">
+          <div class="b-cat-bg"></div><div class="b-cat-bar"></div>
+          <div class="b-cat-left">
+            <div class="b-cat-division">남성 · Male</div>
+            <div class="b-cat-name">중급</div>
+            <div class="b-cat-desc">경력 1년 이상 · 올림픽 리프팅 WOD</div>
+          </div>
+          <div class="b-cat-right">
+            <div class="b-cat-price">30,000원</div>
+            <div class="b-cat-arrow">→</div>
+          </div>
+        </div>
+        <div class="b-cat-divider"></div>
+        <div class="b-cat-item f1">
+          <div class="b-cat-bg"></div><div class="b-cat-bar"></div>
+          <div class="b-cat-left">
+            <div class="b-cat-division">여성 · Female</div>
+            <div class="b-cat-name">초급</div>
+            <div class="b-cat-desc">경력 1년 미만 · 기본 동작 WOD</div>
+          </div>
+          <div class="b-cat-right">
+            <div class="b-cat-price">30,000원</div>
+            <div class="b-cat-arrow">→</div>
+          </div>
+        </div>
+        <div class="b-cat-divider"></div>
+        <div class="b-cat-item f2">
+          <div class="b-cat-bg"></div><div class="b-cat-bar"></div>
+          <div class="b-cat-left">
+            <div class="b-cat-division">여성 · Female</div>
+            <div class="b-cat-name">중급</div>
+            <div class="b-cat-desc">경력 1년 이상 · 올림픽 리프팅 WOD</div>
+          </div>
+          <div class="b-cat-right">
+            <div class="b-cat-price">30,000원</div>
+            <div class="b-cat-arrow">→</div>
+          </div>
+        </div>
+        <div class="b-cat-divider"></div>
+        <div class="b-cat-item team">
+          <div class="b-cat-bg"></div><div class="b-cat-bar" style="background:#f5f0e8"></div>
+          <div class="b-cat-left">
+            <div class="b-cat-division" style="color:#f5f0e8;opacity:.5">팀전 · Team</div>
+            <div class="b-cat-name">3인 팀전</div>
+            <div class="b-cat-desc">같은 학교 3인 1팀 · 협력 WOD</div>
+          </div>
+          <div class="b-cat-right">
+            <div class="b-cat-price" style="color:#f5f0e8">90,000원</div>
+            <div class="b-cat-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

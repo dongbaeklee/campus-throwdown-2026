@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>화이트 톤 프리뷰</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;1,700;1,800;1,900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f0f0ed;font-family:'Noto Sans KR',sans-serif}
+
+/* ── NAV ── */
+nav{position:sticky;top:0;z-index:100;background:rgba(248,248,245,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,0.08);height:64px;display:flex;align-items:center;padding:0 24px}
+.nav-inner{max-width:1024px;margin:0 auto;width:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:800;font-size:18px;text-transform:uppercase;color:#0a0a0a;letter-spacing:1px;text-decoration:none}
+.nav-logo span{color:#ff5722}
+.nav-cta{background:#ff5722;color:#fff;padding:8px 20px;font-size:12px;font-weight:900;border-radius:3px;letter-spacing:.05em;text-transform:uppercase}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:80px 24px 60px;overflow:hidden;background:#f8f8f5}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover no-repeat;opacity:0.08;filter:grayscale(100%)}
+.hero-grad-r{position:absolute;inset:0;background:linear-gradient(to left,rgba(255,87,34,0.04) 0%,transparent 60%)}
+.hero-content{position:relative;z-index:2;max-width:1024px;margin:0 auto;width:100%}
+.hero-year{font-family:'Barlow Condensed',sans-serif;font-size:clamp(64px,18vw,100px);font-weight:800;font-style:italic;color:#ff5722;line-height:1;margin-bottom:-8px}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,14vw,88px);font-weight:800;font-style:italic;color:#0a0a0a;line-height:1.05;text-transform:uppercase;margin-bottom:12px}
+.hero-sub{font-size:16px;font-weight:500;color:#6b6558;margin-bottom:20px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,87,34,0.08);border:1px solid rgba(255,87,34,0.25);color:#ff5722;padding:5px 12px;border-radius:2px;font-size:12px;font-weight:700;margin-bottom:20px;letter-spacing:.05em;text-transform:uppercase}
+.countdown{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid rgba(255,87,34,0.15);border-top:2px solid #ff5722;padding:16px 20px;border-radius:3px;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.cd-block{display:flex;flex-direction:column;align-items:center;min-width:44px}
+.cd-num{font-family:'Barlow Condensed',sans-serif;font-size:clamp(32px,9vw,44px);font-weight:800;color:#ff5722;line-height:1;font-variant-numeric:tabular-nums}
+.cd-label{font-size:10px;color:#aaa8a0;text-transform:uppercase;margin-top:4px}
+.cd-sep{font-size:28px;color:#d4d2cc;padding-bottom:16px}
+.d-label{font-size:11px;letter-spacing:.18em;color:#aaa8a0;text-transform:uppercase;margin-bottom:8px}
+.hero-btns{display:flex;flex-direction:column;gap:12px}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:8px;background:#ff5722;color:#fff;padding:16px 32px;border-radius:3px;font-size:15px;font-weight:900;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:background .2s}
+.btn-primary:hover{background:#e64a19}
+.btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:#0a0a0a;border:1px solid rgba(0,0,0,0.2);padding:16px 32px;border-radius:3px;font-size:15px;font-weight:700;text-decoration:none;transition:border-color .2s}
+.btn-outline:hover{border-color:rgba(255,87,34,0.5);color:#ff5722}
+
+/* ── INFOBAR ── */
+#infobar{padding:0 24px;margin-top:-32px;position:relative;z-index:10}
+.infobar-card{max-width:1024px;margin:0 auto;background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:2px solid #ff5722;border-radius:3px;padding:24px;display:flex;flex-direction:column;gap:20px;box-shadow:0 8px 40px rgba(0,0,0,0.08)}
+.infobar-item{display:flex;align-items:center;gap:16px}
+.infobar-icon{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px}
+.infobar-item-label{font-size:11px;color:#aaa8a0;font-weight:700;margin-bottom:2px;letter-spacing:.5px}
+.infobar-item-value{font-size:14px;font-weight:700;color:#0a0a0a;line-height:1.4}
+.infobar-divider{width:100%;height:1px;background:rgba(0,0,0,0.06)}
+
+/* ── CATEGORIES ── */
+#categories{background:#f8f8f5;padding:72px 0}
+#categories .container{max-width:1024px;margin:0 auto;padding:0 24px}
+.section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ff5722;text-align:center;margin-bottom:10px}
+.section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,6vw,40px);font-weight:800;font-style:italic;text-transform:uppercase;color:#0a0a0a;text-align:center;line-height:1.1;margin-bottom:8px}
+.section-accent{display:block;width:32px;height:2px;background:#ff5722;margin:0 auto 48px}
+.cat-type-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#aaa8a0;margin-bottom:8px}
+.cat-list{display:flex;flex-direction:column;margin-bottom:32px;background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.04)}
+.cat-card{position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px 28px;border-bottom:1px solid rgba(0,0,0,0.06);transition:background .2s}
+.cat-card:last-child{border-bottom:none}
+.cat-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#ff5722;opacity:0;transition:opacity .2s}
+.cat-card:hover{background:rgba(255,87,34,0.02)}
+.cat-card:hover::before{opacity:1}
+.cat-division{font-size:10px;font-weight:700;letter-spacing:.15em;color:#ff5722;text-transform:uppercase;opacity:.8}
+.cat-name{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:28px;font-weight:900;color:#0a0a0a;text-transform:uppercase;line-height:1}
+.cat-desc{font-size:11px;color:#aaa8a0;line-height:1.5;margin-top:2px}
+.cat-card-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.cat-price{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-size:20px;font-weight:900;color:#ff5722}
+.cat-arrow{font-size:14px;color:rgba(255,87,34,0.3)}
+
+/* ── REGISTER ── */
+#register{background:#f0f0ed;padding:72px 24px}
+#register .container{max-width:1024px;margin:0 auto}
+.register-card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-top:2px solid #ff5722;border-radius:3px;padding:28px 24px;box-shadow:0 8px 40px rgba(0,0,0,0.06)}
+.progress-top{display:flex;justify-content:space-between;font-size:13px;color:#aaa8a0;margin-bottom:8px}
+.progress-top strong{color:#ff5722;font-weight:700}
+.progress-bar{height:3px;background:rgba(0,0,0,0.08);border-radius:2px}
+.progress-fill{height:100%;background:#ff5722;border-radius:2px;width:0%}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-size:11px;font-weight:700;letter-spacing:.5px;color:#aaa8a0;text-transform:uppercase;margin-bottom:6px}
+.form-control{width:100%;background:#f8f8f5;border:1px solid rgba(0,0,0,0.12);border-radius:3px;padding:14px 16px;font-size:14px;color:#0a0a0a;font-family:inherit;transition:border-color .2s}
+.form-control:focus{outline:none;border-color:#ff5722;background:#fff}
+.btn-submit{width:100%;background:#ff5722;color:#fff;border:none;border-radius:3px;padding:16px;font-size:15px;font-weight:900;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;font-family:inherit;transition:background .2s}
+.btn-submit:hover{background:#e64a19}
+
+/* ── FAQ PREVIEW ── */
+#faq-preview{background:#fff;padding:72px 24px}
+#faq-preview .container{max-width:1024px;margin:0 auto}
+.faq-item{border-bottom:1px solid rgba(0,0,0,0.07);padding:18px 0}
+.faq-q{width:100%;background:none;border:none;text-align:left;font-size:15px;font-weight:700;color:#0a0a0a;cursor:pointer;font-family:inherit;display:flex;justify-content:space-between;align-items:center}
+.faq-icon{color:#ff5722;font-size:20px;font-weight:300}
+.faq-a{font-size:13px;color:#6b6558;line-height:1.7;margin-top:12px}
+
+/* ── MOBILE BOTTOM ── */
+.mcta{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:90;border-top:1px solid rgba(0,0,0,0.1)}
+.mcta-primary{flex:1;padding:16px;text-align:center;font-size:14px;font-weight:900;text-decoration:none;background:#ff5722;color:#fff;letter-spacing:.05em;text-transform:uppercase}
+.mcta-secondary{flex:1;padding:16px;text-align:center;font-size:14px;font-weight:700;text-decoration:none;background:#fff;color:#0a0a0a}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Campus <span>T</span>D</a>
+    <div class="nav-cta">신청하기</div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grad-r"></div>
+  <div class="hero-content">
+    <div class="hero-year">2026</div>
+    <h1 class="hero-title">캠퍼스<br>스로우다운</h1>
+    <p class="hero-sub">전국 대학생 크로스핏 대회</p>
+    <div class="hero-badge">선착순 100명</div><br>
+    <div class="d-label">D-Day 1 까지</div>
+    <div class="countdown">
+      <div class="cd-block"><span class="cd-num">149</span><span class="cd-label">일</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num">14</span><span class="cd-label">시간</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num">32</span><span class="cd-label">분</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num">07</span><span class="cd-label">초</span></div>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#">참가 신청 →</a>
+      <a class="btn-outline" href="#">대회 안내 →</a>
+    </div>
+  </div>
+</section>
+
+<div id="infobar">
+  <div class="infobar-card">
+    <div class="infobar-item"><div class="infobar-icon">📅</div><div><div class="infobar-item-label">대회 일정</div><div class="infobar-item-value">2026.10.03 — 10.09</div></div></div>
+    <div class="infobar-divider"></div>
+    <div class="infobar-item"><div class="infobar-icon">📍</div><div><div class="infobar-item-label">장소</div><div class="infobar-item-value">서울 올림픽공원 체조경기장</div></div></div>
+    <div class="infobar-divider"></div>
+    <div class="infobar-item"><div class="infobar-icon">👥</div><div><div class="infobar-item-label">모집 인원</div><div class="infobar-item-value">선착순 100명</div></div></div>
+    <div class="infobar-divider"></div>
+    <div class="infobar-item"><div class="infobar-icon">🏛</div><div><div class="infobar-item-label">주관</div><div class="infobar-item-value">전국 대학생 크로스핏 연합회</div></div></div>
+  </div>
+</div>
+
+<section id="categories">
+  <div class="container">
+    <p class="section-label">Categories</p>
+    <h2 class="section-title">참가 부문</h2>
+    <span class="section-accent"></span>
+
+    <p class="cat-type-label">개인전 · Individual</p>
+    <div class="cat-list">
+      <div class="cat-card">
+        <div><div class="cat-division">남성 · Male</div><div class="cat-name">초급</div><div class="cat-desc">경력 1년 미만 · 기본 동작 중심 WOD</div></div>
+        <div class="cat-card-right"><div class="cat-price">30,000원</div><div class="cat-arrow">→</div></div>
+      </div>
+      <div class="cat-card">
+        <div><div class="cat-division">남성 · Male</div><div class="cat-name">중급</div><div class="cat-desc">경력 1년 이상 · 올림픽 리프팅 포함 WOD</div></div>
+        <div class="cat-card-right"><div class="cat-price">30,000원</div><div class="cat-arrow">→</div></div>
+      </div>
+      <div class="cat-card">
+        <div><div class="cat-division">여성 · Female</div><div class="cat-name">초급</div><div class="cat-desc">경력 1년 미만 · 기본 동작 중심 WOD</div></div>
+        <div class="cat-card-right"><div class="cat-price">30,000원</div><div class="cat-arrow">→</div></div>
+      </div>
+      <div class="cat-card">
+        <div><div class="cat-division">여성 · Female</div><div class="cat-name">중급</div><div class="cat-desc">경력 1년 이상 · 올림픽 리프팅 포함 WOD</div></div>
+        <div class="cat-card-right"><div class="cat-price">30,000원</div><div class="cat-arrow">→</div></div>
+      </div>
+    </div>
+
+    <p class="cat-type-label">팀전 · Team</p>
+    <div class="cat-list">
+      <div class="cat-card">
+        <div><div class="cat-division" style="opacity:.5">팀전 · Team</div><div class="cat-name">3인 팀전</div><div class="cat-desc">같은 학교 3인 1팀 · 협력 WOD 포함</div></div>
+        <div class="cat-card-right"><div class="cat-price">90,000원</div><div class="cat-arrow">→</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <div class="container">
+    <p class="section-label">Registration</p>
+    <h2 class="section-title">참가 신청</h2>
+    <span class="section-accent"></span>
+    <div class="register-card">
+      <div style="margin-bottom:20px">
+        <div class="progress-top"><span>현재 신청 인원</span><strong>0 / 100명</strong></div>
+        <div class="progress-bar"><div class="progress-fill"></div></div>
+      </div>
+      <div class="form-group"><label>이름 <span style="color:#ff5722">*</span></label><input class="form-control" placeholder="홍길동"></div>
+      <div class="form-group"><label>학교 <span style="color:#ff5722">*</span></label><input class="form-control" placeholder="○○대학교"></div>
+      <div class="form-group"><label>부문 <span style="color:#ff5722">*</span></label>
+        <select class="form-control"><option>남성 초급</option><option>남성 중급</option><option>여성 초급</option><option>여성 중급</option><option>팀전</option></select>
+      </div>
+      <button class="btn-submit">참가 신청 제출하기 →</button>
+    </div>
+  </div>
+</section>
+
+<section id="faq-preview">
+  <div class="container">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">자주 묻는 질문</h2>
+    <span class="section-accent"></span>
+    <div class="faq-item"><button class="faq-q">참가 자격은 어떻게 되나요? <span class="faq-icon">+</span></button><div class="faq-a">현재 대학(원)에 재학 중인 학생이라면 누구나 참가 가능합니다.</div></div>
+    <div class="faq-item"><button class="faq-q">초보자도 참가할 수 있나요? <span class="faq-icon">+</span></button></div>
+    <div class="faq-item"><button class="faq-q">취소 및 환불은 가능한가요? <span class="faq-icon">+</span></button></div>
+  </div>
+</section>
+
+<div class="mcta">
+  <a href="#" class="mcta-primary">참가 신청</a>
+  <a href="#" class="mcta-secondary">일정 보기</a>
+</div>
+
+</body>
+</html>
