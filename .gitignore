@@ -1,3 +1,10 @@
 # Local Netlify folder
 .netlify
 .vercel
+node_modules/
+.DS_Store
+.omc/
+.superpowers/
+.presentation-work/
+preview-*.png
+runport-ref.png
