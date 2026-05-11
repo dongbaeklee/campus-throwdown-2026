@@ -1001,8 +1001,8 @@
     <div class="register-card">
       <div class="progress-wrap">
         <div class="progress-top">
-          <span>현재 신청 인원</span>
-          <strong id="currentCount">-- / 100명</strong>
+          <span>현재 신청 팀 수</span>
+          <strong id="currentCount">-- 팀</strong>
         </div>
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill"></div>
@@ -1201,7 +1201,7 @@
 
     <div class="status-total-box">
       <div class="status-total-label">전체 신청 인원</div>
-      <div class="status-total-num" id="statusCount">-- / 100명</div>
+      <div class="status-total-num" id="statusCount">-- / 100팀</div>
       <div class="status-total-bar">
         <div class="status-total-fill" id="statusFill"></div>
       </div>
@@ -1393,18 +1393,18 @@
   }
 
   function updateBreakdown(data) {
-    const count = data.count || 0;
-    const breakdown = data.breakdown || {};
+    const count = data.total || 0;
+    const cats = data.cats || {};
 
-    document.getElementById('currentCount').textContent = count + ' / ' + TOTAL + '명';
+    document.getElementById('currentCount').textContent = count + '팀 신청 완료';
     document.getElementById('progressFill').style.width = Math.min((count / TOTAL) * 100, 100) + '%';
-    document.getElementById('statusCount').textContent = count + ' / ' + TOTAL + '명';
+    document.getElementById('statusCount').textContent = count + ' / ' + TOTAL + '팀';
     document.getElementById('statusFill').style.width = Math.min((count / TOTAL) * 100, 100) + '%';
 
     document.querySelectorAll('[data-cat]').forEach(function(el) {
       const cat = el.dataset.cat;
-      const n = breakdown[cat] || 0;
-      el.querySelector('[data-count]').textContent = n + '명';
+      const n = cats[cat] || 0;
+      el.querySelector('[data-count]').textContent = n + '팀';
       el.querySelector('.status-cat-fill').style.width = Math.min((n / TOTAL) * 100, 100) + '%';
       if (n > 0) el.classList.add('has-data');
     });
