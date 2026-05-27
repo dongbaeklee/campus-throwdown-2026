@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠퍼스 피지컬 리그 — 로드맵 & Season 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,800;1,900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: #04060a;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+.top-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 20px; height: 52px;
+  background: rgba(4,6,10,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 22px; text-transform: uppercase;
+  letter-spacing: 1px; color: #fff; text-decoration: none;
+}
+.nav-logo span { color: #00c97a; }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 3px; background: #00c97a;
+  color: #04080a; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  text-decoration: none; text-transform: uppercase;
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  transition: opacity 0.15s, transform 0.1s; white-space: nowrap;
+}
+.nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100svh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  background: #04060a; position: relative; overflow: hidden;
+  padding: 80px 24px 60px; text-align: center;
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 40px 40px; pointer-events: none;
+}
+.hero-radial {
+  position: absolute; top: 40%; left: 50%;
+  transform: translate(-50%,-50%); width: 600px; height: 600px;
+  background: radial-gradient(ellipse, rgba(0,201,122,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
+.hero-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px;
+}
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: clamp(52px,16vw,80px);
+  text-transform: uppercase; line-height: 0.9; color: #fff;
+  letter-spacing: -1px; margin-bottom: 12px;
+}
+.hero-title span { display: block; color: #00c97a; }
+.hero-sub {
+  font-size: 13px; color: rgba(255,255,255,0.35); margin-bottom: 36px;
+  line-height: 1.7; word-break: keep-all;
+}
+
+/* roadmap pill row */
+.roadmap-pills {
+  display: flex; align-items: stretch; gap: 0;
+  border: 1px solid rgba(255,255,255,0.06); border-radius: 4px;
+  overflow: hidden; margin-bottom: 48px;
+}
+.rm-pill {
+  flex: 1; padding: 12px 10px; display: flex; flex-direction: column;
+  align-items: center; gap: 4px;
+  background: rgba(255,255,255,0.02);
+  border-right: 1px solid rgba(255,255,255,0.05);
+  transition: background 0.2s;
+}
+.rm-pill:last-child { border-right: none; flex: 1.3; }
+.rm-pill.active { background: rgba(0,201,122,0.07); }
+.rm-pill:last-child { background: rgba(240,192,32,0.05); }
+.rm-snum {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 10px; letter-spacing: 2px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.rm-period { font-size: 10px; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap; }
+.rm-pill.active .rm-period { color: #00c97a; }
+.rm-pill:nth-child(2) .rm-period { color: #0055ff; }
+.rm-pill:last-child .rm-period { color: #F0C020; }
+.rm-tag {
+  font-size: 8px; padding: 1px 5px; border-radius: 2px;
+  font-weight: 700; letter-spacing: 0.3px; text-transform: uppercase;
+  white-space: nowrap;
+}
+.rm-pill.active .rm-tag { background: rgba(0,201,122,0.2); color: #00c97a; }
+.rm-pill:nth-child(2) .rm-tag { background: rgba(0,85,255,0.15); color: #0055ff; }
+.rm-pill:last-child .rm-tag { background: rgba(240,192,32,0.2); color: #F0C020; }
+
+.scroll-hint {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.2); font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; font-weight: 700;
+  animation: bob 2s ease-in-out infinite;
+}
+.scroll-hint svg { opacity: 0.3; }
+@keyframes bob {
+  0%,100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6px); opacity: 1; }
+}
+
+/* ── SHARED SECTION STYLES ── */
+.page-section {
+  position: relative; overflow: hidden;
+  padding: 72px 0;
+}
+.section-inner {
+  max-width: 480px; margin: 0 auto; padding: 0 24px; width: 100%;
+}
+.section-eyebrow {
+  font-size: 9px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic; margin-bottom: 20px;
+}
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: clamp(36px,11vw,52px);
+  text-transform: uppercase; line-height: 1; margin-bottom: 8px;
+}
+.section-subtitle {
+  font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
+  margin-bottom: 28px; text-transform: uppercase;
+}
+.section-divider {
+  height: 1px; margin-bottom: 28px;
+}
+
+/* ── ROADMAP OVERVIEW ── */
+.roadmap-section {
+  background: #070e0a;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.roadmap-section .section-eyebrow { color: rgba(0,201,122,0.6); }
+.roadmap-section .section-title { color: #fff; }
+.roadmap-section .section-subtitle { color: #00c97a; }
+.roadmap-section .section-divider { background: rgba(0,201,122,0.12); }
+
+.roadmap-cards {
+  display: flex; flex-direction: column; gap: 12px; margin-bottom: 0;
+}
+.rm-card {
+  border-radius: 4px; padding: 18px 16px;
+  border-left: 3px solid var(--rc); background: var(--rc-bg);
+  display: flex; align-items: flex-start; gap: 16px;
+}
+.rm-card-num {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 36px; line-height: 1;
+  color: var(--rc); opacity: 0.4; flex-shrink: 0; min-width: 36px;
+}
+.rm-card-body { flex: 1; }
+.rm-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 6px; gap: 8px;
+}
+.rm-card-name {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 18px; text-transform: uppercase;
+  color: #fff; letter-spacing: 0.5px;
+}
+.rm-card-badge {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; padding: 2px 7px; border-radius: 2px;
+  white-space: nowrap;
+}
+.badge-now { background: #00c97a; color: #04080a; }
+.badge-next { background: rgba(0,85,255,0.15); color: #0055ff; border: 1px solid rgba(0,85,255,0.3); }
+.badge-final { background: rgba(240,192,32,0.2); color: #F0C020; border: 1px solid rgba(240,192,32,0.3); }
+.rm-card-period { font-size: 10px; font-weight: 700; color: var(--rc); margin-bottom: 6px; }
+.rm-card-desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.5; word-break: keep-all; }
+
+/* ── S1 DETAIL ── */
+.s1-section { background: #070e0a; border-top: 2px solid #00c97a; }
+.s1-section .section-eyebrow { color: rgba(0,201,122,0.6); }
+.s1-section .section-title { color: #fff; }
+.s1-section .section-subtitle { color: #00c97a; }
+.s1-section .section-divider { background: rgba(0,201,122,0.12); }
+.s1-glow {
+  position: absolute; top: -80px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(ellipse, rgba(0,201,122,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.s1-watermark {
+  position: absolute; right: -10px; bottom: -20px;
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: clamp(160px,45vw,320px);
+  line-height: 1; color: rgba(0,201,122,0.03);
+  user-select: none; pointer-events: none; letter-spacing: -8px;
+}
+
+.statement {
+  font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85);
+  line-height: 1.7; margin-bottom: 28px;
+  padding-left: 12px; border-left: 2px solid #00c97a;
+  word-break: keep-all;
+}
+
+/* division compare */
+.div-compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;
+}
+.div-card {
+  border-radius: 4px; padding: 16px 14px;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.div-card.open {
+  border: 1px solid rgba(0,201,122,0.25);
+  background: rgba(0,201,122,0.05);
+}
+.div-card.perf {
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.02);
+}
+.div-badge {
+  display: inline-block; align-self: flex-start;
+  padding: 2px 8px; border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+}
+.div-card.open .div-badge { background: #00c97a; color: #04080a; }
+.div-card.perf .div-badge { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.6); }
+.div-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.2; word-break: keep-all; }
+.div-desc { font-size: 11px; color: rgba(255,255,255,0.45); line-height: 1.5; word-break: keep-all; }
+
+/* info grid */
+.info-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+  background: rgba(0,201,122,0.08);
+  border: 1px solid rgba(0,201,122,0.08);
+  border-radius: 4px; overflow: hidden; margin-bottom: 24px;
+}
+.info-cell { background: #0d1c12; padding: 14px 12px; }
+.info-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; font-style: italic;
+  color: rgba(0,201,122,0.45); margin-bottom: 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+.info-value {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 15px; color: #fff; line-height: 1.2;
+}
+
+/* key points */
+.key-points { margin-bottom: 28px; display: flex; flex-direction: column; gap: 10px; }
+.kp {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 12px 14px; border-radius: 4px;
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05);
+}
+.kp-icon {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 20px; color: rgba(0,201,122,0.5);
+  line-height: 1; flex-shrink: 0; min-width: 22px;
+}
+.kp-text { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.55; word-break: keep-all; }
+.kp-text strong { color: #fff; font-weight: 700; }
+
+/* tags */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 32px; }
+.tag {
+  padding: 4px 10px; border-radius: 2px;
+  background: rgba(0,201,122,0.07); border: 1px solid rgba(0,201,122,0.15);
+  font-size: 10px; font-weight: 700; color: #00c97a; letter-spacing: 0.5px;
+}
+
+/* s1 register btn */
+.reg-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 16px; border-radius: 4px; background: #00c97a;
+  color: #04080a; font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic; font-weight: 900; font-size: 18px;
+  text-transform: uppercase; letter-spacing: 1px; text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.reg-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,201,122,0.25); }
+
+/* ── FUTURE SEASONS ── */
+.future-section {
+  background: #04060a;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.future-section .section-eyebrow { color: rgba(255,255,255,0.25); }
+.future-section .section-title { color: rgba(255,255,255,0.6); }
+.future-section .section-subtitle { color: rgba(255,255,255,0.25); }
+
+.future-cards { display: flex; flex-direction: column; gap: 12px; }
+
+.future-card {
+  border-radius: 4px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.future-card-top {
+  padding: 16px; display: flex; align-items: center; justify-content: space-between;
+  background: rgba(255,255,255,0.02);
+}
+.future-card-left { display: flex; flex-direction: column; gap: 4px; }
+.future-card-season {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 11px; letter-spacing: 3px;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+}
+.future-card-title {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 22px; text-transform: uppercase; color: #fff;
+}
+.future-card-period { font-size: 11px; font-weight: 700; }
+.future-card-body {
+  padding: 14px 16px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.future-card-desc {
+  font-size: 12px; color: rgba(255,255,255,0.4); line-height: 1.6; word-break: keep-all;
+}
+
+/* S3 FINAL card emphasis */
+.future-card.is-final {
+  border-color: rgba(240,192,32,0.2);
+  box-shadow: 0 0 24px rgba(240,192,32,0.06);
+}
+.future-card.is-final .future-card-top {
+  background: rgba(240,192,32,0.04);
+  border-bottom: 1px solid rgba(240,192,32,0.08);
+}
+.future-card.is-final .future-card-title { color: #F0C020; }
+.future-card.is-final .future-card-period { color: #F0C020; }
+.future-card.is-final .future-card-body {
+  border-top-color: rgba(240,192,32,0.08);
+}
+.future-card.is-final .future-card-desc { color: rgba(255,255,255,0.55); }
+
+.final-badge {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 2px;
+  background: rgba(240,192,32,0.2); color: #F0C020;
+  border: 1px solid rgba(240,192,32,0.3);
+}
+
+.final-points {
+  margin-top: 10px; display: flex; flex-direction: column; gap: 5px;
+}
+.fp {
+  font-size: 11px; font-weight: 700; color: rgba(240,192,32,0.7);
+  padding-left: 12px; position: relative; line-height: 1.4;
+}
+.fp::before {
+  content: ''; position: absolute; left: 0; top: 7px;
+  width: 4px; height: 1px; background: rgba(240,192,32,0.5);
+}
+
+/* ── CTA ── */
+.cta-section {
+  background: #04060a; padding: 80px 24px;
+  text-align: center; position: relative; overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.cta-section::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,201,122,0.4), transparent);
+}
+.cta-glow {
+  position: absolute; top: 40%; left: 50%; transform: translate(-50%,-50%);
+  width: 500px; height: 300px;
+  background: radial-gradient(ellipse, rgba(0,201,122,0.05) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; max-width: 480px; margin: 0 auto; }
+.cta-pre { font-size: 12px; color: rgba(255,255,255,0.3); margin-bottom: 12px; letter-spacing: 1px; }
+.cta-headline {
+  font-family: 'Barlow Condensed', sans-serif; font-style: italic;
+  font-weight: 900; font-size: clamp(32px,10vw,48px);
+  text-transform: uppercase; line-height: 1; color: #fff; margin-bottom: 8px;
+}
+.cta-headline span { color: #00c97a; }
+.cta-sub {
+  font-size: 13px; color: rgba(255,255,255,0.3); margin-bottom: 36px;
+  line-height: 1.7; word-break: keep-all;
+}
+.cta-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 16px 32px; background: #00c97a; color: #04080a;
+  border-radius: 4px; font-family: 'Barlow Condensed', sans-serif;
+  font-style: italic; font-weight: 900; font-size: 18px;
+  text-transform: uppercase; letter-spacing: 1px; text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,201,122,0.25); }
+.cta-note { margin-top: 16px; font-size: 10px; color: rgba(255,255,255,0.15); letter-spacing: 1px; }
+
+/* ── CREW BAR ── */
+.crew-bar { background: #070e0a; border-top: 1px solid rgba(0,201,122,0.12); padding: 28px 24px; }
+.crew-bar-inner { max-width: 480px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.crew-bar-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; font-family: 'Barlow Condensed', sans-serif; font-style: italic; color: rgba(0,201,122,0.5); margin-bottom: 4px; }
+.crew-bar-title { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.75); }
+.crew-bar-desc { font-size: 11px; color: rgba(255,255,255,0.3); margin-top: 2px; word-break: keep-all; }
+.crew-bar-btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 3px; border: 1px solid rgba(0,201,122,0.3); color: #00c97a; font-family: 'Barlow Condensed', sans-serif; font-style: italic; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; white-space: nowrap; transition: background 0.15s; }
+.crew-bar-btn:hover { background: rgba(0,201,122,0.08); }
+
+/* ── MOBILE ── */
+@media (max-width: 400px) {
+  .div-compare { grid-template-columns: 1fr; }
+  .info-value { font-size: 13px; }
+}
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="top-nav">
+  <a href="index-v2.html" class="nav-logo">C<span>P</span>L</a>
+  <a href="index-v2.html" class="nav-cta">Season 1 참가 →</a>
+</nav>
+
+<!-- ① HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-radial"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Campus Physical League</p>
+    <h1 class="hero-title">The Road<span>Ahead</span></h1>
+    <p class="hero-sub">지금 시작해서 파이널까지.<br>CPL의 3시즌 여정을 소개합니다.</p>
+
+    <div class="roadmap-pills">
+      <div class="rm-pill active">
+        <span class="rm-snum">S1</span>
+        <span class="rm-period">2026 하반기</span>
+        <span class="rm-tag">NOW OPEN</span>
+      </div>
+      <div class="rm-pill">
+        <span class="rm-snum">S2</span>
+        <span class="rm-period">2027 상반기</span>
+        <span class="rm-tag">RISE</span>
+      </div>
+      <div class="rm-pill">
+        <span class="rm-snum">S3</span>
+        <span class="rm-period">2027 하반기</span>
+        <span class="rm-tag">GRAND FINAL</span>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M3 9l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      SCROLL
+    </div>
+  </div>
+</section>
+
+<!-- ② ROADMAP OVERVIEW -->
+<section class="page-section roadmap-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">3-Season Roadmap</p>
+    <h2 class="section-title reveal">로드맵</h2>
+    <p class="section-subtitle reveal">2026 하반기 → 2027 하반기 파이널</p>
+    <div class="section-divider reveal"></div>
+
+    <div class="roadmap-cards reveal">
+      <div class="rm-card" style="--rc:#00c97a; --rc-bg:rgba(0,201,122,0.04);">
+        <div class="rm-card-num">01</div>
+        <div class="rm-card-body">
+          <div class="rm-card-head">
+            <span class="rm-card-name">The Open</span>
+            <span class="rm-card-badge badge-now">NOW</span>
+          </div>
+          <div class="rm-card-period">2026 하반기</div>
+          <div class="rm-card-desc">오픈 · 퍼포먼스 디비전으로 나눠 누구든 참가 가능. 자유롭게 팀을 구성해 첫 번째 CPL에 도전하세요.</div>
+        </div>
+      </div>
+
+      <div class="rm-card" style="--rc:#0055ff; --rc-bg:rgba(0,85,255,0.03);">
+        <div class="rm-card-num">02</div>
+        <div class="rm-card-body">
+          <div class="rm-card-head">
+            <span class="rm-card-name">The Rise</span>
+            <span class="rm-card-badge badge-next">NEXT</span>
+          </div>
+          <div class="rm-card-period">2027 상반기</div>
+          <div class="rm-card-desc">S1 팀은 계속 참가. 신규 팀 추가 합류, 이벤트와 강도 상향. 랭킹 시스템 도입.</div>
+        </div>
+      </div>
+
+      <div class="rm-card" style="--rc:#F0C020; --rc-bg:rgba(240,192,32,0.04);">
+        <div class="rm-card-num">03</div>
+        <div class="rm-card-body">
+          <div class="rm-card-head">
+            <span class="rm-card-name">The Final</span>
+            <span class="rm-card-badge badge-final">GRAND FINAL</span>
+          </div>
+          <div class="rm-card-period">2027 하반기</div>
+          <div class="rm-card-desc">각 대학이 대표팀을 리빌딩해 맞붙는 파이널 리그전. 전국 최고의 대학팀을 가립니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ SEASON 1 DETAIL -->
+<section class="page-section s1-section" id="season1">
+  <div class="s1-glow"></div>
+  <div class="s1-watermark">01</div>
+
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Season 01 · 2026 하반기</p>
+    <h2 class="section-title reveal">The Open</h2>
+    <p class="section-subtitle reveal">지금 참가할 수 있습니다</p>
+    <div class="section-divider reveal"></div>
+
+    <p class="statement reveal">
+      운동 경력과 상관없이 누구든 참가할 수 있습니다.<br>
+      수준에 맞는 디비전을 선택해 팀을 구성하세요.
+    </p>
+
+    <!-- Division Compare -->
+    <div class="div-compare reveal">
+      <div class="div-card open">
+        <span class="div-badge">OPEN</span>
+        <div class="div-title">오픈 디비전</div>
+        <div class="div-desc">운동 경력 무관.<br>동아리, 친구 사이 누구든 팀 구성 가능.</div>
+      </div>
+      <div class="div-card perf">
+        <span class="div-badge">PERFORMANCE</span>
+        <div class="div-title">퍼포먼스 디비전</div>
+        <div class="div-desc">더 높은 강도와 난이도.<br>실력을 증명하고 싶은 팀을 위한 무대.</div>
+      </div>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="info-grid reveal">
+      <div class="info-cell">
+        <div class="info-label">기간</div>
+        <div class="info-value">2026 하반기</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">디비전</div>
+        <div class="info-value">오픈 / 퍼포먼스</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">참가 자격</div>
+        <div class="info-value">대학 재학생 누구든</div>
+      </div>
+      <div class="info-cell">
+        <div class="info-label">이벤트</div>
+        <div class="info-value">기능체력 3~4종목</div>
+      </div>
+    </div>
+
+    <!-- Key Points -->
+    <div class="key-points reveal">
+      <div class="kp">
+        <div class="kp-icon">01</div>
+        <div class="kp-text"><strong>자유 팀 구성</strong> — 운동부, 동아리, 친구 사이 상관없이 팀을 만들 수 있습니다.</div>
+      </div>
+      <div class="kp">
+        <div class="kp-icon">02</div>
+        <div class="kp-text"><strong>개인 기량 + 팀워크</strong> — 한 사람의 기량으로 모든 걸 해결할 수 없습니다. 팀 전체의 조합이 중요합니다.</div>
+      </div>
+      <div class="kp">
+        <div class="kp-icon">03</div>
+        <div class="kp-text"><strong>MVP 어워드</strong> — 우승팀과 별개로 전 경기를 통틀어 가장 뛰어난 퍼포먼스에 수여하는 개인 시상.</div>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div class="tags reveal">
+      <span class="tag">#오픈디비전</span>
+      <span class="tag">#퍼포먼스디비전</span>
+      <span class="tag">#자유팀구성</span>
+      <span class="tag">#누구나참가</span>
+      <span class="tag">#MVP어워드</span>
+    </div>
+
+    <a href="index-v2.html" class="reg-btn reveal">
+      Season 1 지금 참가하기
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+<!-- ④ FUTURE SEASONS -->
+<section class="page-section future-section">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">What's Next</p>
+    <h2 class="section-title reveal">앞으로의 여정</h2>
+    <p class="section-subtitle reveal">S1 이후에 무엇이 기다리고 있는가</p>
+
+    <div class="future-cards">
+      <div class="future-card reveal">
+        <div class="future-card-top">
+          <div class="future-card-left">
+            <span class="future-card-season">Season 02</span>
+            <span class="future-card-title">The Rise</span>
+          </div>
+          <span class="future-card-period" style="color:#0055ff; font-weight:700; font-size:12px;">2027 상반기</span>
+        </div>
+        <div class="future-card-body">
+          <div class="future-card-desc">S1 참가팀은 계속 참가합니다. 신규 팀도 추가로 합류할 수 있고, 이벤트 종목과 강도가 올라갑니다. 팀 랭킹 시스템이 도입되어 시즌 내 순위 경쟁이 시작됩니다.</div>
+        </div>
+      </div>
+
+      <div class="future-card is-final reveal">
+        <div class="future-card-top">
+          <div class="future-card-left">
+            <span class="future-card-season">Season 03</span>
+            <span class="future-card-title">The Final</span>
+          </div>
+          <span class="final-badge">GRAND FINAL</span>
+        </div>
+        <div class="future-card-body">
+          <div class="future-card-desc">각 대학이 대표 선수단을 새롭게 리빌딩해 출전하는 파이널 리그전. S1·S2를 통해 쌓인 경험 위에, 전국 최고의 대학팀을 가립니다.</div>
+          <div class="final-points">
+            <div class="fp">대학 대표팀 리빌딩 · 포지션 전문화</div>
+            <div class="fp">예선 → 본선 → 파이널 3단계 토너먼트</div>
+            <div class="fp">MVP 어워드 · 우승 대학 공식 인증</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div class="cta-inner">
+    <p class="cta-pre">지금 Season 1에 참가하면</p>
+    <h2 class="cta-headline">당신이 이 리그의<br><span>첫 번째입니다</span></h2>
+    <p class="cta-sub">S1에서 시작해 S3 파이널까지.<br>이 역사의 첫 페이지를 쓸 팀을 기다립니다.</p>
+    <a href="index-v2.html" class="cta-btn">
+      Season 1 지금 참가하기
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <p class="cta-note">CAMPUS PHYSICAL LEAGUE · 2026 하반기 S1 → 2027 하반기 FINAL</p>
+  </div>
+</section>
+
+<!-- CREW BAR -->
+<div class="crew-bar">
+  <div class="crew-bar-inner">
+    <div>
+      <div class="crew-bar-eyebrow">Staff Recruitment</div>
+      <div class="crew-bar-title">CPL 운영 크루 모집 중</div>
+      <div class="crew-bar-desc">선수가 아닌 다른 방식으로 CPL에 함께하고 싶다면</div>
+    </div>
+    <a href="staff.html" class="crew-bar-btn">지원하기 →</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+
+  // stagger within sections
+  document.querySelectorAll('.page-section, .hero').forEach(function(sec) {
+    sec.querySelectorAll('.reveal').forEach(function(el, i) {
+      el.style.transitionDelay = (i * 70) + 'ms';
+    });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>캠퍼스 피지컬 리그 2026 — CPL Season 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070e0a;
+  --card: #0d1c12;
+  --accent: #00c97a;
+  --accent2: #4de8a8;
+  --rgb: 0 201 122;
+  --text: #d8f0e4;
+  --muted: #5a8a70;
+  --border: rgba(0,201,122,0.12);
+  --white: #ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans KR',sans-serif;font-size:14px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;background:rgba(7,14,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:16px;}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:18px;color:var(--white);text-decoration:none;letter-spacing:-.02em;flex:1;}
+.nav-logo span{color:var(--accent);}
+.nav-links{display:none;gap:20px;}
+.nav-links a{color:var(--muted);font-size:13px;font-weight:600;text-decoration:none;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--accent);color:#000;padding:8px 18px;border-radius:3px;font-size:13px;font-weight:700;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-style:italic;letter-spacing:.05em;}
+.hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:20px;height:2px;background:var(--text);}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;z-index:99;background:rgba(7,14,10,0.97);backdrop-filter:blur(12px);flex-direction:column;padding:16px 0;border-bottom:1px solid var(--border);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{padding:14px 24px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(0,201,122,0.06);}
+.mobile-menu a:last-child{color:var(--accent);border-bottom:none;}
+.mcta{position:fixed;bottom:0;left:0;right:0;z-index:100;display:flex;gap:1px;}
+.mcta-primary{flex:1;padding:14px 0;text-align:center;background:var(--accent);color:#000;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:15px;text-decoration:none;letter-spacing:.05em;}
+.mcta-secondary{padding:14px 20px;text-align:center;background:rgba(0,201,122,0.12);color:var(--accent);font-size:13px;font-weight:700;text-decoration:none;}
+
+/* ── HERO ── */
+#hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:80px 24px 60px;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80') center/cover no-repeat;opacity:0.07;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 65%,rgba(0,201,122,0.1) 0%,transparent 70%);}
+.hero-inner{position:relative;z-index:1;text-align:center;max-width:500px;width:100%;}
+.hero-season{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:12px;letter-spacing:.35em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:14px;}
+.hero-season::before,.hero-season::after{content:'';flex:1;max-width:56px;height:1px;background:rgba(0,201,122,0.35);}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(60px,16vw,112px);line-height:.88;letter-spacing:-.02em;color:var(--white);text-transform:uppercase;margin-bottom:6px;}
+.hero-sub-ko{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:clamp(20px,5vw,32px);color:rgba(255,255,255,0.45);margin-bottom:28px;letter-spacing:.02em;}
+.hero-date{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.countdown{display:flex;align-items:center;justify-content:center;gap:4px;margin-bottom:36px;}
+.cd-block{text-align:center;}
+.cd-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:44px;line-height:1;color:var(--white);display:block;}
+.cd-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;margin-top:-2px;}
+.cd-sep{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:36px;color:var(--accent);margin:0 2px;padding-bottom:18px;align-self:center;}
+.hero-btns{display:flex;flex-direction:column;gap:10px;align-items:center;}
+.btn-primary{background:var(--accent);color:#000;padding:14px 36px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:17px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:280px;}
+.btn-outline{border:1px solid rgba(0,201,122,0.35);color:var(--accent);background:transparent;padding:13px 36px;border-radius:3px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:17px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;justify-content:center;width:100%;max-width:280px;}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(0,201,122,0.35);display:flex;flex-direction:column;align-items:center;gap:6px;}
+.hero-scroll::after{content:'';width:1px;height:28px;background:linear-gradient(to bottom,rgba(0,201,122,0.35),transparent);}
+
+/* ── INFO GRID ── */
+#info{background:var(--card);}
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(0,201,122,0.07);}
+.info-cell{background:var(--card);padding:20px 16px;display:flex;flex-direction:column;gap:6px;position:relative;}
+.info-cell::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(0,201,122,0.15);}
+.info-cell:nth-child(1)::before{background:var(--accent);height:2px;}
+.info-cell-icon{color:var(--accent);opacity:0.65;}
+.info-cell-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);}
+.info-cell-value{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:17px;color:var(--white);}
+
+/* ── SECTION COMMON ── */
+.sec-wrap{padding:72px 0;}
+.container{max-width:480px;margin:0 auto;padding:0 20px;}
+.sec-label{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:6px;}
+.sec-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(34px,9vw,52px);color:var(--white);line-height:.95;margin-bottom:6px;word-break:keep-all;}
+.sec-accent{display:block;width:28px;height:2px;background:var(--accent);margin-bottom:32px;}
+
+/* ── CATEGORIES ── */
+#categories{background:var(--bg);}
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:0;}
+.cat-div-label{grid-column:1/-1;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding:10px 20px 6px;}
+.cat-card{background:var(--card);aspect-ratio:2/3;padding:18px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;cursor:pointer;transition:background .2s;}
+.cat-card:hover{background:#111f15;}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);}
+.cat-card:nth-child(n+4)::before{background:rgba(0,201,122,0.35);}
+.cat-card-num{position:absolute;top:12px;right:12px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:56px;line-height:1;color:rgba(0,201,122,0.05);}
+.cat-card-div{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
+.cat-card-name{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:20px;color:var(--white);line-height:1.1;margin-bottom:8px;}
+.cat-card-desc{font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
+.cat-card-price{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:16px;color:var(--accent);border-top:1px solid rgba(0,201,122,0.14);padding-top:9px;}
+
+/* ── BENEFITS ── */
+#benefits{background:var(--bg);}
+.benefits-header{padding:0 20px;max-width:480px;margin:0 auto 0;}
+.benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(0,201,122,0.05);margin-top:32px;}
+.benefit-card{background:#080f0b;padding:24px 18px;display:flex;flex-direction:column;gap:9px;position:relative;}
+.benefit-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(0,201,122,0.1);}
+.benefit-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:10px;letter-spacing:.18em;color:rgba(0,201,122,0.38);}
+.benefit-icon{color:var(--accent);}
+.benefit-icon svg{display:block;}
+.benefit-title{font-size:13px;font-weight:700;color:var(--white);line-height:1.3;}
+.benefit-desc{font-size:11px;color:var(--muted);line-height:1.6;}
+
+/* ── PRICING ── */
+#pricing{background:var(--bg);}
+.pricing-cards{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:0;}
+.p-card{background:var(--card);padding:22px 18px;border-top:2px solid rgba(0,201,122,0.18);position:relative;}
+.p-card.featured{border-top-color:var(--accent);}
+.p-badge{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:rgba(0,201,122,0.1);padding:3px 9px;border-radius:2px;display:inline-block;margin-bottom:12px;}
+.p-round{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:12px;color:var(--muted);text-transform:uppercase;margin-bottom:2px;}
+.p-period{font-size:10px;color:var(--muted);margin-bottom:14px;line-height:1.4;}
+.p-amount{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;margin-bottom:3px;}
+.p-amount .num{font-size:32px;color:var(--white);line-height:1;}
+.p-amount .unit{font-size:14px;color:var(--muted);}
+.p-per{font-size:10px;color:var(--muted);margin-bottom:14px;}
+.p-per strong{color:var(--text);}
+.p-divider{height:1px;background:rgba(0,201,122,0.07);margin:0 0 12px;}
+.p-perks{display:flex;flex-direction:column;gap:5px;}
+.p-perk{display:flex;align-items:flex-start;gap:5px;font-size:10px;color:var(--muted);line-height:1.4;}
+.p-perk::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;}
+.p-now{position:absolute;top:12px;right:12px;background:var(--accent);color:#000;font-size:8px;font-weight:700;padding:2px 7px;border-radius:2px;letter-spacing:.05em;}
+.pricing-note{text-align:center;font-size:11px;color:var(--muted);line-height:1.9;padding:18px 0 0;}
+
+/* ── REGISTER ── */
+#register{background:var(--bg);}
+.register-card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--accent);border-radius:3px;padding:24px 18px;}
+.progress-wrap{margin-bottom:22px;}
+.progress-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px;}
+.progress-top strong{color:var(--accent);}
+.progress-bar{height:3px;background:rgba(0,201,122,0.1);border-radius:2px;}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width .6s;}
+.type-toggle{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:rgba(0,0,0,0.4);border:1px solid rgba(0,201,122,0.14);border-radius:8px;overflow:hidden;padding:3px;margin-bottom:22px;}
+.type-btn{padding:10px 6px;font-size:11px;font-weight:700;border:none;border-radius:5px;cursor:pointer;background:transparent;color:var(--muted);transition:background .2s,color .2s;font-family:inherit;line-height:1.3;}
+.type-btn.active{background:var(--accent);color:#000;}
+.form-group{margin-bottom:13px;}
+.form-group label{display:block;font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--muted);text-transform:uppercase;margin-bottom:5px;}
+.form-group label span{color:var(--accent);}
+.form-control{width:100%;background:rgba(0,0,0,0.5);border:1px solid rgba(0,201,122,0.14);border-radius:6px;padding:12px 13px;font-size:13px;color:var(--white);font-family:inherit;transition:border-color .2s;-webkit-appearance:none;appearance:none;}
+.form-control:focus{outline:none;border-color:var(--accent);}
+.form-control::placeholder{color:#2a5a3a;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.team-member-block{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:13px;margin-bottom:9px;}
+.member-label{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:9px;display:flex;align-items:center;gap:7px;}
+.member-gender-pip{padding:2px 7px;border-radius:999px;font-size:9px;}
+.member-gender-pip.m{background:rgba(59,130,246,0.2);color:#60a5fa;}
+.member-gender-pip.f{background:rgba(236,72,153,0.2);color:#f472b6;}
+.receipt-section{background:rgba(0,0,0,0.3);border:1px solid var(--border);border-radius:8px;padding:13px;margin-bottom:13px;}
+.receipt-section-title{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.receipt-radio-group{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:9px;}
+.receipt-radio-group label{display:flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;font-weight:600;color:var(--text);text-transform:none;letter-spacing:0;}
+.receipt-radio-group input[type="radio"]{accent-color:var(--accent);}
+.receipt-fields{display:none;}
+.receipt-fields.active{display:block;}
+.form-agree{display:flex;align-items:flex-start;gap:8px;margin:14px 0;}
+.form-agree input[type="checkbox"]{width:15px;height:15px;accent-color:var(--accent);flex-shrink:0;margin-top:2px;}
+.form-agree label{font-size:11px;color:var(--muted);line-height:1.5;text-transform:none;letter-spacing:0;font-weight:400;}
+.form-agree a{color:var(--accent);text-decoration:none;}
+.btn-submit{width:100%;background:var(--accent);color:#000;border:none;border-radius:3px;padding:15px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:16px;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;}
+.btn-submit:hover{background:var(--accent2);}
+.form-success{display:none;text-align:center;padding:14px 0;}
+.success-icon{display:flex;justify-content:center;margin-bottom:10px;color:#4caf50;}
+.form-success h3{font-family:'Barlow Condensed',sans-serif;font-size:28px;font-weight:800;font-style:italic;color:var(--white);margin-bottom:7px;}
+.success-sub{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.7;}
+.account-box{background:rgba(0,0,0,0.5);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:13px;text-align:left;}
+.account-box-title{background:rgba(0,201,122,0.1);border-bottom:1px solid rgba(0,201,122,0.14);padding:9px 13px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);}
+.account-row{display:flex;justify-content:space-between;align-items:center;padding:9px 13px;border-bottom:1px solid var(--border);font-size:12px;}
+.account-row:last-child{border-bottom:none;}
+.account-row dt{color:var(--muted);}
+.account-row dd{font-weight:700;color:var(--white);}
+.account-row dd.amount{color:var(--accent);font-size:14px;}
+.receipt-notice{font-size:10px;color:var(--muted);line-height:2;text-align:left;padding:9px 0;}
+
+/* ── STATUS ── */
+#status{background:#060e08;}
+.status-total-box{background:var(--card);border:1px solid rgba(0,201,122,0.14);border-top:2px solid var(--accent);border-radius:3px;padding:22px;text-align:center;margin-bottom:14px;}
+.status-total-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:9px;}
+.status-total-num{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:800;font-style:italic;color:var(--white);line-height:1;}
+.status-total-bar{height:4px;background:rgba(0,201,122,0.1);margin-top:14px;border-radius:2px;}
+.status-total-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width .6s;}
+.status-cats{display:flex;flex-direction:column;gap:7px;}
+.status-cat{background:var(--card);border:1px solid rgba(0,201,122,0.09);border-left:2px solid #0a2d16;border-radius:2px;padding:12px 13px;}
+.status-cat.has-data{border-left-color:var(--accent);}
+.status-cat-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;}
+.status-cat-name{font-size:13px;font-weight:700;color:var(--text);}
+.status-cat-count{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;color:var(--accent);font-style:italic;}
+.status-cat-bar{height:2px;background:rgba(0,201,122,0.09);border-radius:2px;}
+.status-cat-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width .6s;}
+
+/* ── FAQ ── */
+#faq{background:var(--bg);}
+.faq-list{display:flex;flex-direction:column;gap:5px;}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.faq-item:hover{border-color:rgba(0,201,122,0.24);}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;padding:14px 15px;background:none;border:none;cursor:pointer;color:var(--text);font-size:13px;font-weight:500;text-align:left;font-family:inherit;}
+.faq-icon{font-size:17px;color:var(--muted);flex-shrink:0;margin-left:9px;transition:transform .2s;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 15px 14px;font-size:12px;color:var(--muted);line-height:1.7;border-top:1px solid var(--border);padding-top:10px;}
+.faq-item.open .faq-a{display:block;}
+
+/* ── BOTTOM CTA ── */
+#bottom-cta{background:var(--bg);text-align:center;padding:88px 24px;position:relative;overflow:hidden;}
+.bottom-cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(0,201,122,0.07),transparent 70%);}
+.bottom-cta-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(36px,9vw,60px);line-height:1;color:var(--white);margin-bottom:28px;position:relative;}
+.bottom-cta-title span{color:var(--accent);}
+
+/* ── PAGE LINKS BAR ── */
+.page-links-bar{background:#070e0a;border-top:1px solid rgba(0,201,122,0.12);padding:24px;}
+.page-links-bar-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:8px;}
+.plb-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-style:italic;color:rgba(255,255,255,0.2);margin-bottom:4px;}
+.plb-cards{display:flex;flex-direction:column;gap:8px;}
+.plb-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:4px;border:1px solid rgba(255,255,255,0.07);background:rgba(255,255,255,0.02);text-decoration:none;transition:border-color 0.2s,background 0.2s;}
+.plb-card:hover{border-color:rgba(0,201,122,0.2);background:rgba(0,201,122,0.03);}
+.plb-card-left{display:flex;flex-direction:column;gap:2px;}
+.plb-card-eyebrow{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;font-style:italic;color:rgba(0,201,122,0.45);}
+.plb-card-title{font-size:14px;font-weight:700;color:rgba(255,255,255,0.65);}
+.plb-card-arrow{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:18px;color:rgba(255,255,255,0.2);}
+
+/* ── FOOTER ── */
+footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 80px;text-align:center;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:20px;text-transform:uppercase;color:rgba(0,201,122,0.22);margin-bottom:9px;}
+.footer-copy{font-size:11px;color:#2a5a3a;}
+.footer-contact{font-size:12px;color:var(--muted);margin-top:6px;}
+.footer-contact a{color:var(--accent);text-decoration:none;}
+
+/* ── HOOK / MANIFESTO ── */
+#hook{background:var(--bg);padding:80px 24px;position:relative;overflow:hidden;}
+.hook-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 5% 60%,rgba(0,201,122,0.07),transparent 55%),radial-gradient(ellipse 50% 40% at 95% 10%,rgba(0,201,122,0.04),transparent 50%);}
+.hook-inner{position:relative;z-index:1;max-width:480px;margin:0 auto;}
+.hook-eyebrow{font-size:10px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+.hook-eyebrow::after{content:'';flex:1;height:1px;background:rgba(0,201,122,0.25);}
+.hook-headline{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(40px,11vw,68px);line-height:.92;color:var(--white);margin-bottom:24px;letter-spacing:-.01em;word-break:keep-all;}
+.hook-headline em{color:var(--accent);font-style:inherit;}
+.hook-body{font-size:14px;color:var(--text);line-height:1.85;margin-bottom:36px;opacity:0.85;}
+.hook-body strong{color:var(--accent);font-weight:700;}
+.hook-stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+.hook-stat{background:var(--card);padding:16px 14px;border-top:1px solid rgba(0,201,122,0.1);}
+.hook-stat:first-child{border-top-color:var(--accent);}
+.hook-stat-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:24px;color:var(--white);line-height:1.05;}
+.hook-stat-num span{color:var(--accent);}
+.hook-stat-label{font-size:10px;color:var(--muted);margin-top:4px;letter-spacing:.04em;}
+
+/* ── CONCEPT ── */
+#concept{background:#060e08;padding:72px 0 0;}
+.concept-header{padding:0 20px;max-width:480px;margin:0 auto;}
+.concept-cards{display:flex;flex-direction:column;gap:2px;margin-top:32px;}
+.concept-card{background:var(--card);padding:28px 20px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;}
+.concept-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:2px;background:rgba(0,201,122,0.22);}
+.concept-card:first-child::before{background:var(--accent);}
+.concept-num{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:700;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,201,122,0.38);}
+.concept-title{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:24px;color:var(--white);line-height:1.05;}
+.concept-title em{color:var(--accent);font-style:inherit;}
+.concept-body{font-size:13px;color:rgba(216,240,228,0.65);line-height:1.8;word-break:keep-all;}
+.concept-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+.concept-tag{font-size:10px;font-weight:700;color:var(--accent);background:rgba(0,201,122,0.09);padding:3px 8px;border-radius:2px;letter-spacing:.03em;}
+
+/* ── TARGET ── */
+#target{background:#060e08;padding:72px 0;}
+.target-list{display:flex;flex-direction:column;gap:2px;margin-top:28px;}
+.target-item{background:var(--card);padding:18px 20px;display:flex;align-items:flex-start;gap:14px;}
+.target-check{width:22px;height:22px;border-radius:50%;background:rgba(0,201,122,0.1);border:1px solid rgba(0,201,122,0.28);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.target-check svg{display:block;}
+.target-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;word-break:keep-all;}
+.target-desc{font-size:12px;color:var(--muted);line-height:1.6;word-break:keep-all;}
+.target-note{background:rgba(0,201,122,0.05);border:1px solid rgba(0,201,122,0.14);border-radius:6px;padding:16px 18px;margin-top:20px;font-size:12px;color:var(--muted);line-height:1.8;text-align:center;word-break:keep-all;}
+.target-note strong{color:var(--accent);}
+
+@media(min-width:640px){
+  .hero-btns{flex-direction:row;justify-content:center;}
+  .status-cats{display:grid;grid-template-columns:1fr 1fr;}
+  .hamburger,.mcta{display:none;}
+  footer{padding-bottom:40px;}
+}
+@media(min-width:768px){
+  .nav-links{display:flex;}
+  .hamburger{display:none;}
+  .mcta{display:none;}
+  footer{padding-bottom:40px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CPL <span style="font-size:10px;color:#52525b;font-style:normal;">캠퍼스 피지컬 리그</span></a>
+  <div class="nav-links">
+    <a href="#hook">대회 소개</a>
+    <a href="#categories">참가 부문</a>
+    <a href="#pricing">참가비</a>
+    <a href="#status">신청현황</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#register" class="nav-cta">참가 신청</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#hook" onclick="closeMenu()">대회 소개</a>
+  <a href="#concept" onclick="closeMenu()">대회 개념</a>
+  <a href="#categories" onclick="closeMenu()">참가 부문</a>
+  <a href="#pricing" onclick="closeMenu()">참가비</a>
+  <a href="#status" onclick="closeMenu()">신청현황</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="#register" onclick="closeMenu()">참가 신청하기 →</a>
+</div>
+<div class="mcta">
+  <a href="#register" class="mcta-primary">참가 신청</a>
+  <a href="#faq" class="mcta-secondary">FAQ</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-season">SEASON 01</div>
+    <div class="hero-title">CAMPUS<br>PHYSICAL LEAGUE</div>
+    <div class="hero-sub-ko">캠퍼스 피지컬 리그</div>
+    <div class="hero-date">대회까지</div>
+    <div class="countdown">
+      <div class="cd-block"><span class="cd-num" id="cdDays">--</span><span class="cd-label">일</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdHours">--</span><span class="cd-label">시간</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdMins">--</span><span class="cd-label">분</span></div>
+      <span class="cd-sep">:</span>
+      <div class="cd-block"><span class="cd-num" id="cdSecs">--</span><span class="cd-label">초</span></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#register" class="btn-primary">참가 신청 →</a>
+      <a href="#info" class="btn-outline">대회 안내 →</a>
+    </div>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- INFO -->
+<div id="info">
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="info-cell-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+      <div class="info-cell-label">대회 일정</div>
+      <div class="info-cell-value">2026.10.03</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="info-cell-label">참가 부문</div>
+      <div class="info-cell-value">오픈 · 퍼포먼스</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div class="info-cell-label">개최 장소</div>
+      <div class="info-cell-value">서울권 예정</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-cell-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+      <div class="info-cell-label">모집 규모</div>
+      <div class="info-cell-value">20팀 한정</div>
+    </div>
+  </div>
+</div>
+
+<!-- HOOK -->
+<section id="hook">
+  <div class="hook-bg"></div>
+  <div class="hook-inner">
+    <div class="hook-eyebrow">Campus Physical League 2026</div>
+    <h2 class="hook-headline">
+      단순한 운동<br>대회가<br><em>아닙니다.</em>
+    </h2>
+    <p class="hook-body">
+      <strong>전국 최고의 대학팀을 찾는 무대.</strong><br><br>
+      캠퍼스 피지컬 리그는 전국 대학생들이 <strong>학교를 대표해</strong> 출전하는 기능체력(Functional Fitness) 팀 대회입니다.<br><br>
+      로잉머신, 러닝, 케틀벨, 바벨 — 실전 체력의 모든 요소를 팀원과 함께 소화해내야 합니다. 헬스장에서 혼자 하던 운동을 이제 <strong>학교 이름을 걸고</strong> 펼쳐보세요.
+    </p>
+    <div class="hook-stats">
+      <div class="hook-stat">
+        <div class="hook-stat-num"><span>SEASON</span> 01</div>
+        <div class="hook-stat-label">역사적인 첫 개최</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-num"><span>20</span>팀</div>
+        <div class="hook-stat-label">선착순 한정 모집</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-num"><span>2</span>개</div>
+        <div class="hook-stat-label">디비전 (오픈 · 퍼포먼스)</div>
+      </div>
+      <div class="hook-stat">
+        <div class="hook-stat-num"><span>10.03</span></div>
+        <div class="hook-stat-label">2026년 대회 당일</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="concept-header">
+    <span class="sec-label">How It Works</span>
+    <h2 class="sec-title">이런 대회입니다</h2>
+    <span class="sec-accent"></span>
+  </div>
+  <div class="concept-cards">
+    <div class="concept-card">
+      <div class="concept-num">CONCEPT 01</div>
+      <div class="concept-title">기능 체력으로<br><em>승부합니다</em></div>
+      <p class="concept-body">단순한 기록 대결이 아닙니다. 실전 체력의 여러 요소를 조합한 이벤트를 팀원과 함께 수행합니다. 얼마나 무거운 것을 드느냐가 아니라, 얼마나 다양한 신체능력을 팀으로 발휘하느냐가 승부를 가릅니다.</p>
+    </div>
+    <div class="concept-card">
+      <div class="concept-num">CONCEPT 02</div>
+      <div class="concept-title">팀으로<br><em>출전합니다</em></div>
+      <p class="concept-body">팀을 구성해 출전합니다. 각 이벤트마다 누가 나설지는 팀이 결정합니다. 개인전인지, 2인 1조인지는 이벤트에 따라 달라집니다. 한 사람의 기량으로 모든 걸 해결할 수 없습니다. 개인 기량의 합과 팀워크, 두 가지가 모두 갖춰져야 최고의 팀이 됩니다.</p>
+    </div>
+    <div class="concept-card">
+      <div class="concept-num">CONCEPT 03</div>
+      <div class="concept-title">학교를 대표해<br><em>출전합니다</em></div>
+      <p class="concept-body">이 대회는 개인전이 아닙니다. 당신이 다니는 학교 이름을 등에 지고 출전합니다. 전국 대학생들이 한 자리에 모여 피지컬로 승부를 겨루는 — 국내 최초 대학 간 기능체력 팀 대회 Season 1의 역사적인 첫 페이지에 당신의 학교 이름을 남기세요.</p>
+      <div class="concept-tags">
+        <span class="concept-tag">학교 대표</span>
+        <span class="concept-tag">대학 간 경쟁</span>
+        <span class="concept-tag">Season 1</span>
+        <span class="concept-tag">국내 최초</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET -->
+<section id="target">
+  <div class="container">
+    <span class="sec-label">Who Is This For</span>
+    <h2 class="sec-title">이런 분께<br>추천합니다</h2>
+    <span class="sec-accent"></span>
+    <div class="target-list">
+      <div class="target-item">
+        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div>
+          <div class="target-title">헬스장 · 크로스핏 박스를 다니는 대학생</div>
+          <div class="target-desc">꾸준히 운동하고 있지만 대회에 나가본 적 없는 분. 오픈 디비전은 바벨 없이 기능체력 동작만으로 구성됩니다.</div>
+        </div>
+      </div>
+      <div class="target-item">
+        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div>
+          <div class="target-title">팀으로 무언가에 도전해보고 싶은 분</div>
+          <div class="target-desc">혼자 하던 운동을 넘어, 팀으로서의 체력을 함께 증명하고 싶은 분에게 딱 맞는 대회입니다.</div>
+        </div>
+      </div>
+      <div class="target-item">
+        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div>
+          <div class="target-title">학교 이름을 걸고 출전해보고 싶은 분</div>
+          <div class="target-desc">학교 대표로 뭔가 해봤으면 했지만 기회가 없었던 분. 이 대회가 바로 그 기회입니다.</div>
+        </div>
+      </div>
+      <div class="target-item">
+        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div>
+          <div class="target-title">내 체력 수준을 객관적으로 확인하고 싶은 분</div>
+          <div class="target-desc">헬스장을 벗어나 실전에서 내 체력이 어느 수준인지 처음으로 객관적으로 확인할 수 있는 기회.</div>
+        </div>
+      </div>
+      <div class="target-item">
+        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
+        <div>
+          <div class="target-title">운동으로 이어지는 새로운 네트워크가 필요한 분</div>
+          <div class="target-desc">전국 대학 운동하는 사람들과 직접 만나는 기회. Season 1 참가자들이 이 커뮤니티의 첫 번째 멤버가 됩니다.</div>
+        </div>
+      </div>
+    </div>
+    <div class="target-note">
+      오픈 디비전은 운동 경력에 상관없이 누구나 참가가 가능합니다.
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section id="categories" class="sec-wrap">
+  <div class="container">
+    <span class="sec-label">Categories</span>
+    <h2 class="sec-title">참가 부문</h2>
+    <span class="sec-accent"></span>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-div-label">오픈 디비전 — 바벨 없음 · 누구나</div>
+    <div class="cat-card">
+      <div class="cat-card-num">01</div>
+      <div class="cat-card-div">Open · 2인팀</div>
+      <div class="cat-card-name">남/여<br>혼성 2인</div>
+      <div class="cat-card-desc">남자 1명 + 여자 1명<br>기능성 동작 (로잉, 러닝, 케틀벨, 버피)</div>
+      <div class="cat-card-price">100,000원</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-card-num">02</div>
+      <div class="cat-card-div">Open · 3인팀</div>
+      <div class="cat-card-name">성별 무관<br>3인 1팀</div>
+      <div class="cat-card-desc">성별 무관<br>기능성 동작 (로잉, 러닝, 케틀벨, 버피)</div>
+      <div class="cat-card-price">150,000원</div>
+    </div>
+    <div class="cat-div-label" style="margin-top:2px;">퍼포먼스 디비전 — 바벨 포함 · 경험자</div>
+    <div class="cat-card">
+      <div class="cat-card-num">03</div>
+      <div class="cat-card-div">Performance · 2인팀</div>
+      <div class="cat-card-name">남/여<br>혼성 2인</div>
+      <div class="cat-card-desc">남자 1명 + 여자 1명<br>바벨 동작 포함 (데드리프트, 파워클린)</div>
+      <div class="cat-card-price">100,000원</div>
+    </div>
+    <div class="cat-card">
+      <div class="cat-card-num">04</div>
+      <div class="cat-card-div">Performance · 3인팀</div>
+      <div class="cat-card-name">성별 무관<br>3인 1팀</div>
+      <div class="cat-card-desc">성별 무관<br>바벨 동작 포함 (데드리프트, 파워클린)</div>
+      <div class="cat-card-price">150,000원</div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="sec-wrap" style="padding-bottom:0;">
+  <div class="benefits-header">
+    <span class="sec-label">Benefits</span>
+    <h2 class="sec-title">참가하면 받는 것</h2>
+    <span class="sec-accent"></span>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <div class="benefit-num">01</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 1-2-2V5h4"/><path d="M18 9h2a2 2 0 0 0 2-2V5h-4"/><path d="M12 17v4"/><path d="M8 21h8"/><path d="M6 5h12v4a6 6 0 0 1-12 0V5z"/></svg></div>
+      <div class="benefit-title">우승팀 트로피 & 메달</div>
+      <div class="benefit-desc">1~3위 팀 공식 시상. Season 1 챔피언으로 기록됩니다.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-num">02</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></div>
+      <div class="benefit-title">공식 티셔츠</div>
+      <div class="benefit-desc">캠퍼스 피지컬 리그 2026 공식 대회 티셔츠 전원 제공.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-num">03</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <div class="benefit-title">참가 확인서</div>
+      <div class="benefit-desc">운영위원회 명의 공식 확인서 이메일 발급.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-num">04</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <div class="benefit-title">대회 사진</div>
+      <div class="benefit-desc">전문 포토그래퍼 촬영 현장 사진 전원 공유.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-num">05</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="benefit-title">커뮤니티</div>
+      <div class="benefit-desc">전국 대학 피지컬 커뮤니티 네트워킹 기회.</div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-num">06</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="13"/><path d="M8 22V9"/><path d="M16 22V9"/><path d="M3 13h18"/><path d="M7 5l5-3 5 3v4H7z"/></svg></div>
+      <div class="benefit-title">전용 박스</div>
+      <div class="benefit-desc">서울 내 전용 트레이닝 박스에서 진행.</div>
+    </div>
+    <div class="benefit-card" style="grid-column:1/-1;border-top:2px solid var(--accent);">
+      <div class="benefit-num">07</div>
+      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
+      <div class="benefit-title">MVP 어워드</div>
+      <div class="benefit-desc">전 경기를 통틀어 가장 뛰어난 퍼포먼스를 보인 개인 1명에게 수여하는 별도의 시상입니다. 우승팀 여부와 관계없이 선정되며, CPL Season 1의 첫 MVP로 기록됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="sec-wrap">
+  <div class="container">
+    <span class="sec-label">Pricing</span>
+    <h2 class="sec-title">참가비 안내</h2>
+    <span class="sec-accent"></span>
+    <div class="pricing-cards">
+      <div class="p-card">
+        <div class="p-badge">진행 중</div>
+        <div class="p-round">2인 1팀</div>
+        <div class="p-period">오픈 · 퍼포먼스 공통<br>남/여 혼성</div>
+        <div class="p-amount"><span class="num">100,000</span><span class="unit">원</span></div>
+        <div class="p-per">1인당 <strong>50,000원</strong></div>
+        <div class="p-divider"></div>
+        <div class="p-perks">
+          <div class="p-perk">공식 티셔츠</div>
+          <div class="p-perk">참가 확인서</div>
+          <div class="p-perk">대회 사진</div>
+          <div class="p-perk">트로피·메달</div>
+        </div>
+      </div>
+      <div class="p-card featured">
+        <div class="p-now">모집 중</div>
+        <div class="p-badge">진행 중</div>
+        <div class="p-round">3인 1팀</div>
+        <div class="p-period">오픈 · 퍼포먼스 공통<br>성별 무관</div>
+        <div class="p-amount"><span class="num">150,000</span><span class="unit">원</span></div>
+        <div class="p-per">1인당 <strong>50,000원</strong></div>
+        <div class="p-divider"></div>
+        <div class="p-perks">
+          <div class="p-perk">공식 티셔츠</div>
+          <div class="p-perk">참가 확인서</div>
+          <div class="p-perk">대회 사진</div>
+          <div class="p-perk">트로피·메달</div>
+        </div>
+      </div>
+    </div>
+    <p class="pricing-note">신청 후 7일 이내 입금 · 마감일 기준 미입금 시 자동 취소<br>신청 마감일 7일 전까지 100% 환불 가능</p>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="sec-wrap">
+  <div class="container">
+    <span class="sec-label">Registration</span>
+    <h2 class="sec-title">참가 신청</h2>
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:26px;">오픈 · 퍼포먼스 디비전 · 2026년 9월 19일까지</p>
+    <span class="sec-accent"></span>
+    <div class="register-card">
+      <div class="progress-wrap">
+        <div class="progress-top"><span>현재 신청 팀 수</span><strong id="currentCount">-- 팀</strong></div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+      <form id="regForm" novalidate>
+        <div class="type-toggle">
+          <button type="button" class="type-btn active" id="btn-open2" onclick="switchType('open2')">오픈 2인<br><span style="font-size:9px;font-weight:400;opacity:0.7;">남/여 혼성</span></button>
+          <button type="button" class="type-btn" id="btn-open3" onclick="switchType('open3')">오픈 3인<br><span style="font-size:9px;font-weight:400;opacity:0.7;">성별 무관</span></button>
+          <button type="button" class="type-btn" id="btn-perf2" onclick="switchType('perf2')">퍼포먼스 2인<br><span style="font-size:9px;font-weight:400;opacity:0.7;">남/여 혼성</span></button>
+          <button type="button" class="type-btn" id="btn-perf3" onclick="switchType('perf3')">퍼포먼스 3인<br><span style="font-size:9px;font-weight:400;opacity:0.7;">성별 무관</span></button>
+        </div>
+        <input type="hidden" name="entry_type" id="entryType" value="open2">
+        <input type="hidden" name="category_val" id="categoryVal" value="오픈 2인(남여)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>팀장 이름 <span>*</span></label>
+            <input class="form-control" type="text" name="name" id="inputName" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label>학교 <span>*</span></label>
+            <input class="form-control" type="text" name="school" placeholder="○○대학교" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>연락처 <span>*</span></label>
+          <input class="form-control" type="tel" name="phone" placeholder="010-XXXX-XXXX" required>
+        </div>
+        <div class="form-group">
+          <label>이메일 <span>*</span></label>
+          <input class="form-control" type="email" name="email" placeholder="example@university.ac.kr" required>
+        </div>
+        <div class="form-group">
+          <label>팀명 <span>*</span></label>
+          <input class="form-control" type="text" name="team_name" placeholder="팀 이름을 입력하세요" required>
+        </div>
+        <div id="fields-2">
+          <div class="team-member-block">
+            <div class="member-label">팀원 <span class="member-gender-pip f">여성</span></div>
+            <div class="form-group">
+              <label>이름 <span>*</span></label>
+              <input class="form-control" type="text" name="member1_name" placeholder="홍길동">
+            </div>
+          </div>
+          <p id="note-2" style="font-size:11px;color:var(--muted);line-height:1.8;padding:9px 11px;background:rgba(0,0,0,0.3);border-radius:6px;margin-bottom:13px;">
+            ※ 팀장(남) + 팀원(여) 혼성 2인 구성<br>※ 팀 참가비 100,000원 (50,000원 × 2명)
+          </p>
+        </div>
+        <div id="fields-3" style="display:none;">
+          <div class="team-member-block">
+            <div class="member-label">팀원 1</div>
+            <div class="form-group">
+              <label>이름 <span>*</span></label>
+              <input class="form-control" type="text" name="member1_name" placeholder="홍길동">
+            </div>
+          </div>
+          <div class="team-member-block">
+            <div class="member-label">팀원 2</div>
+            <div class="form-group">
+              <label>이름 <span>*</span></label>
+              <input class="form-control" type="text" name="member2_name" placeholder="홍길동">
+            </div>
+          </div>
+          <p id="note-3" style="font-size:11px;color:var(--muted);line-height:1.8;padding:9px 11px;background:rgba(0,0,0,0.3);border-radius:6px;margin-bottom:13px;">
+            ※ 팀장 포함 3인 구성 · 성별 무관<br>※ 팀 참가비 150,000원 (50,000원 × 3명)
+          </p>
+        </div>
+        <div class="receipt-section">
+          <div class="receipt-section-title">세금 증빙 신청 <span style="font-weight:400;color:#52525b;">(선택)</span></div>
+          <div class="receipt-radio-group">
+            <label><input type="radio" name="receiptType" value="none" checked onchange="switchReceipt(this.value)"> 신청 안 함</label>
+            <label><input type="radio" name="receiptType" value="cash" onchange="switchReceipt(this.value)"> 현금영수증</label>
+            <label><input type="radio" name="receiptType" value="tax" onchange="switchReceipt(this.value)"> 세금계산서</label>
+          </div>
+          <div class="receipt-fields" id="receiptCash">
+            <div class="form-group">
+              <label>현금영수증 발급 번호</label>
+              <input type="tel" name="receiptPhone" class="form-control" placeholder="휴대폰 번호 또는 현금영수증 카드번호">
+            </div>
+          </div>
+          <div class="receipt-fields" id="receiptTax">
+            <div class="form-row">
+              <div class="form-group"><label>사업자등록번호</label><input type="text" name="bizNumber" class="form-control" placeholder="000-00-00000"></div>
+              <div class="form-group"><label>상호명</label><input type="text" name="bizName" class="form-control" placeholder="회사명"></div>
+            </div>
+            <div class="form-group">
+              <label>세금계산서 수신 이메일</label>
+              <input type="email" name="bizEmail" class="form-control" placeholder="tax@company.com">
+            </div>
+          </div>
+        </div>
+        <div class="form-agree">
+          <input type="checkbox" id="agree" required>
+          <label for="agree"><a href="#" onclick="return false">개인정보 처리방침</a>에 동의합니다. 수집된 정보는 대회 운영 목적으로만 사용됩니다.</label>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">오픈 2인 신청 (100,000원)</button>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <span class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg></span>
+        <h3>신청 완료!</h3>
+        <p class="success-sub">7일 이내 아래 계좌로 참가비를 입금해 주세요.<br>입금 확인 후 접수가 최종 확정됩니다.</p>
+        <div class="account-box">
+          <div class="account-box-title">입금 계좌 안내</div>
+          <dl>
+            <div class="account-row"><dt>은행</dt><dd>신한은행</dd></div>
+            <div class="account-row"><dt>계좌번호</dt><dd>110-367-511137</dd></div>
+            <div class="account-row"><dt>예금주</dt><dd>이도형</dd></div>
+            <div class="account-row"><dt>입금 기한</dt><dd>신청일로부터 7일 이내</dd></div>
+            <div class="account-row"><dt>입금 금액</dt><dd class="amount" id="payAmount">100,000원</dd></div>
+            <div class="account-row"><dt>디비전</dt><dd id="divisionName">오픈 2인</dd></div>
+          </dl>
+        </div>
+        <div id="receiptInfo" style="display:none;background:#000;border:1px solid var(--border);border-radius:8px;padding:13px;margin-bottom:10px;text-align:left;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">세금 증빙 신청 내역</div>
+          <strong id="receiptTypeTxt" style="color:var(--white);font-size:12px;"></strong><br>
+          <span id="receiptDetailTxt" style="color:var(--muted);font-size:11px;"></span>
+          <p style="font-size:10px;color:var(--muted);margin-top:6px;">※ 입금 확인 후 영업일 기준 3일 이내 발급됩니다.</p>
+        </div>
+        <div class="receipt-notice">
+          ※ 입금자명은 신청자 본인 이름으로 해주세요<br>
+          ※ 미입금 시 신청이 자동 취소됩니다 (7일 이후)<br>
+          ※ 문의: campusthrowdown2026@gmail.com
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATUS -->
+<section id="status" class="sec-wrap">
+  <div class="container">
+    <span class="sec-label">Registration Status</span>
+    <h2 class="sec-title">신청 현황</h2>
+    <span class="sec-accent"></span>
+    <div class="status-total-box">
+      <div class="status-total-label">전체 신청 인원</div>
+      <div class="status-total-num" id="statusCount">-- / 20팀</div>
+      <div class="status-total-bar"><div class="status-total-fill" id="statusFill"></div></div>
+    </div>
+    <div class="status-cats">
+      <div class="status-cat" data-cat="오픈 2인(남여)">
+        <div class="status-cat-top"><span class="status-cat-name">오픈 2인 (남/여)</span><span class="status-cat-count" data-count>0팀</span></div>
+        <div class="status-cat-bar"><div class="status-cat-fill"></div></div>
+      </div>
+      <div class="status-cat" data-cat="오픈 3인">
+        <div class="status-cat-top"><span class="status-cat-name">오픈 3인</span><span class="status-cat-count" data-count>0팀</span></div>
+        <div class="status-cat-bar"><div class="status-cat-fill"></div></div>
+      </div>
+      <div class="status-cat" data-cat="퍼포먼스 2인(남여)">
+        <div class="status-cat-top"><span class="status-cat-name">퍼포먼스 2인 (남/여)</span><span class="status-cat-count" data-count>0팀</span></div>
+        <div class="status-cat-bar"><div class="status-cat-fill"></div></div>
+      </div>
+      <div class="status-cat" data-cat="퍼포먼스 3인">
+        <div class="status-cat-top"><span class="status-cat-name">퍼포먼스 3인</span><span class="status-cat-count" data-count>0팀</span></div>
+        <div class="status-cat-bar"><div class="status-cat-fill"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec-wrap">
+  <div class="container">
+    <span class="sec-label">FAQ</span>
+    <h2 class="sec-title">자주 묻는 질문</h2>
+    <span class="sec-accent"></span>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">참가 자격은 어떻게 되나요?<span class="faq-icon">+</span></button><div class="faq-a">누구나 참가 가능합니다. 오픈 디비전은 운동 경력 무관, 퍼포먼스 디비전은 바벨 동작(데드리프트, 파워클린) 경험자에게 권장합니다. 모든 부문은 팀 단위로만 신청할 수 있습니다.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">참가비는 얼마인가요?<span class="faq-icon">+</span></button><div class="faq-a">오픈 디비전 100,000원(2인팀), 퍼포먼스 디비전 150,000원(3인팀)이며 1인당 50,000원입니다. 신청 완료 후 7일 이내 입금하시면 접수가 확정됩니다.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">팀 구성은 어떻게 되나요?<span class="faq-icon">+</span></button><div class="faq-a">오픈 디비전은 팀장 포함 2인(성별 무관), 퍼포먼스 디비전은 팀장 포함 3인(여자 1명 필수 포함)으로 구성합니다.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">복장 및 장비 규정이 있나요?<span class="faq-icon">+</span></button><div class="faq-a">운동에 적합한 복장이라면 자유롭게 착용 가능합니다. 역도화, 일반 운동화 모두 허용됩니다. 개인 벨트, 무릎보호대 사용 가능합니다.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">취소 및 환불은 가능한가요?<span class="faq-icon">+</span></button><div class="faq-a">신청 마감일(9월 19일) 7일 전까지는 100% 환불됩니다. 이후에는 환불이 불가하오니 신중하게 신청해주세요.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">당일 관람은 가능한가요?<span class="faq-icon">+</span></button><div class="faq-a">대회 당일 현장 관람은 누구나 무료로 가능합니다. 별도의 관람 신청은 필요하지 않습니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section id="bottom-cta">
+  <div class="bottom-cta-bg"></div>
+  <div class="container" style="position:relative;">
+    <h2 class="bottom-cta-title">지금 바로<br><span>참가 신청</span>하세요</h2>
+    <a href="#register" class="btn-primary" style="display:inline-flex;max-width:280px;margin:0 auto;">참가 신청 →</a>
+  </div>
+</section>
+
+<!-- PAGE LINKS BAR -->
+<div class="page-links-bar">
+  <div class="page-links-bar-inner">
+    <div class="plb-label">더 알아보기</div>
+    <div class="plb-cards">
+      <a href="cpl-seasons.html" class="plb-card">
+        <div class="plb-card-left">
+          <span class="plb-card-eyebrow">Roadmap · 3시즌</span>
+          <span class="plb-card-title">CPL 로드맵 보기</span>
+        </div>
+        <span class="plb-card-arrow">→</span>
+      </a>
+      <a href="staff.html" class="plb-card">
+        <div class="plb-card-left">
+          <span class="plb-card-eyebrow">Staff Recruitment</span>
+          <span class="plb-card-title">CPL 운영 크루 지원하기</span>
+        </div>
+        <span class="plb-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Campus Physical League 2026</div>
+  <div class="footer-contact">문의: <a href="mailto:campusthrowdown2026@gmail.com">campusthrowdown2026@gmail.com</a></div>
+  <div class="footer-copy" style="margin-top:9px;">© 2026 Campus Physical League. All rights reserved.</div>
+</footer>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyjuopH_TuNC7djPdhH9Hw4bpTSSL74Y62xRmpDqSmTkaoT9egQnHKm7kJiNfqJhdh/exec';
+const TOTAL = 20;
+
+function loadCount() {
+  const s = document.createElement('script');
+  s.src = SCRIPT_URL + '?action=breakdown&callback=updateBreakdown';
+  document.head.appendChild(s);
+}
+function updateBreakdown(data) {
+  const count = data.total || data.count || 0, cats = data.cats || data.breakdown || {};
+  document.getElementById('currentCount').textContent = count + '팀 신청 완료';
+  document.getElementById('progressFill').style.width = Math.min((count/TOTAL)*100,100) + '%';
+  document.getElementById('statusCount').textContent = count + ' / ' + TOTAL + '팀';
+  document.getElementById('statusFill').style.width = Math.min((count/TOTAL)*100,100) + '%';
+  document.querySelectorAll('[data-cat]').forEach(el => {
+    const n = cats[el.dataset.cat] || 0;
+    el.querySelector('[data-count]').textContent = n + '팀';
+    el.querySelector('.status-cat-fill').style.width = Math.min((n/TOTAL)*100,100) + '%';
+    if (n > 0) el.classList.add('has-data');
+  });
+}
+loadCount();
+
+const TARGET = new Date('2026-10-03T09:00:00+09:00');
+function updateCountdown() {
+  const diff = TARGET - new Date();
+  if (diff <= 0) { ['cdDays','cdHours','cdMins','cdSecs'].forEach(id => document.getElementById(id).textContent='00'); return; }
+  const pad = n => String(Math.floor(n)).padStart(2,'0');
+  document.getElementById('cdDays').textContent  = pad(diff/86400000);
+  document.getElementById('cdHours').textContent = pad((diff%86400000)/3600000);
+  document.getElementById('cdMins').textContent  = pad((diff%3600000)/60000);
+  document.getElementById('cdSecs').textContent  = pad((diff%60000)/1000);
+}
+updateCountdown(); setInterval(updateCountdown, 1000);
+
+function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+const CAT_MAP   = { open2:'오픈 2인(남여)', open3:'오픈 3인', perf2:'퍼포먼스 2인(남여)', perf3:'퍼포먼스 3인' };
+const LABEL_MAP = { open2:'오픈 2인 신청 (100,000원)', open3:'오픈 3인 신청 (150,000원)', perf2:'퍼포먼스 2인 신청 (100,000원)', perf3:'퍼포먼스 3인 신청 (150,000원)' };
+const PAY_MAP   = { open2:'100,000원', open3:'150,000원', perf2:'100,000원', perf3:'150,000원' };
+const DIV_MAP   = { open2:'오픈 2인', open3:'오픈 3인', perf2:'퍼포먼스 2인', perf3:'퍼포먼스 3인' };
+
+function switchType(t) {
+  ['open2','open3','perf2','perf3'].forEach(k => document.getElementById('btn-'+k).classList.remove('active'));
+  document.getElementById('btn-'+t).classList.add('active');
+  document.getElementById('entryType').value = t;
+  document.getElementById('categoryVal').value = CAT_MAP[t];
+  document.getElementById('submitBtn').textContent = LABEL_MAP[t];
+  const is2 = t==='open2'||t==='perf2';
+  document.getElementById('fields-2').style.display = is2 ? '' : 'none';
+  document.getElementById('fields-3').style.display = is2 ? 'none' : '';
+}
+function switchReceipt(v) {
+  document.getElementById('receiptCash').classList.toggle('active', v==='cash');
+  document.getElementById('receiptTax').classList.toggle('active', v==='tax');
+}
+function toggleFaq(btn) { btn.closest('.faq-item').classList.toggle('open'); }
+
+document.getElementById('regForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!document.getElementById('agree').checked) { alert('개인정보 처리방침에 동의해주세요.'); return; }
+  const name = document.getElementById('inputName').value.trim();
+  if (!name) { alert('팀장 이름을 입력해주세요.'); return; }
+  const btn = document.getElementById('submitBtn');
+  btn.textContent = '신청 중...'; btn.disabled = true;
+  const fd = new FormData(this);
+  const params = new URLSearchParams();
+  for (const [k,v] of fd.entries()) params.append(k,v);
+  params.set('name', name);
+  const s = document.createElement('script');
+  s.src = SCRIPT_URL + '?action=submit&' + params.toString() + '&callback=onSubmit';
+  document.head.appendChild(s);
+  setTimeout(() => {
+    const t = document.getElementById('entryType').value;
+    document.getElementById('payAmount').textContent = PAY_MAP[t];
+    document.getElementById('divisionName').textContent = DIV_MAP[t];
+    const rt = document.querySelector('input[name="receiptType"]:checked').value;
+    if (rt !== 'none') {
+      document.getElementById('receiptInfo').style.display = '';
+      document.getElementById('receiptTypeTxt').textContent = rt==='cash' ? '현금영수증' : '세금계산서';
+      document.getElementById('receiptDetailTxt').textContent = rt==='cash' ? (fd.get('receiptPhone')||'') : (fd.get('bizName')||'');
+    }
+    this.style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 1500);
+});
+</script>
+</body>
+</html>
