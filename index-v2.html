@@ -86,7 +86,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;height:60px;background:rgba(
 .cat-card:hover{background:#111f15;}
 .cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);}
 .cat-card:nth-child(n+4)::before{background:rgba(0,201,122,0.35);}
-.cat-card-num{position:absolute;top:12px;right:12px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:56px;line-height:1;color:rgba(0,201,122,0.05);}
+.cat-card-num{position:absolute;top:12px;right:14px;font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:80px;line-height:1;color:rgba(0,201,122,0.07);}
+.cat-event-big{position:absolute;left:18px;top:44%;transform:translateY(-65%);font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:clamp(44px,10vw,58px);color:var(--white);line-height:0.88;pointer-events:none;}
+.cat-card--final::before{background:#f0c020 !important;}
+.cat-card--final .cat-card-num{color:rgba(240,192,32,0.09);}
+.cat-card--final .cat-card-div{color:#f0c020;}
+.cat-card--final .cat-event-big{color:#f0c020;}
+.cat-card--final .cat-card-price{color:#f0c020;border-top-color:rgba(240,192,32,0.18);}
+.div-compare-wrap{padding:2px 0 0;}
+.div-compare{background:var(--card);padding:20px 20px 24px;}
+.div-compare-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+.div-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.div-item{padding:16px;border:1px solid rgba(255,255,255,0.06);}
+.div-badge{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:7px;}
+.div-team{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:26px;color:var(--white);line-height:1;margin-bottom:5px;}
+.div-note{font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
+.div-price{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:17px;color:var(--accent);border-top:1px solid rgba(0,201,122,0.14);padding-top:10px;}
 .cat-card-div{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:5px;}
 .cat-card-name{font-family:'Barlow Condensed',sans-serif;font-style:italic;font-weight:900;font-size:20px;color:var(--white);line-height:1.1;margin-bottom:8px;}
 .cat-card-desc{font-size:10px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
@@ -480,40 +495,59 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
 <!-- CATEGORIES -->
 <section id="categories" class="sec-wrap">
   <div class="container">
-    <span class="sec-label">Categories</span>
-    <h2 class="sec-title">참가 부문</h2>
+    <span class="sec-label">Events</span>
+    <h2 class="sec-title">대회 종목</h2>
     <span class="sec-accent"></span>
   </div>
   <div class="cat-grid">
-    <div class="cat-div-label">오픈 디비전 — 바벨 없음 · 누구나</div>
     <div class="cat-card">
       <div class="cat-card-num">01</div>
-      <div class="cat-card-div">Open · 2인팀</div>
-      <div class="cat-card-name">남/여<br>혼성 2인</div>
-      <div class="cat-card-desc">남자 1명 + 여자 1명<br>기능성 동작 (로잉, 러닝, 케틀벨, 버피)</div>
-      <div class="cat-card-price">100,000원</div>
+      <div class="cat-event-big">지구력</div>
+      <div class="cat-card-div">ENGINE · Event 01</div>
+      <div class="cat-card-name">팀 심폐지구력</div>
+      <div class="cat-card-desc">팀이 분담해서 목표 볼륨 완수.<br>페이스 조절과 분배 전략이 핵심.</div>
     </div>
     <div class="cat-card">
       <div class="cat-card-num">02</div>
-      <div class="cat-card-div">Open · 3인팀</div>
-      <div class="cat-card-name">성별 무관<br>3인 1팀</div>
-      <div class="cat-card-desc">성별 무관<br>기능성 동작 (로잉, 러닝, 케틀벨, 버피)</div>
-      <div class="cat-card-price">150,000원</div>
+      <div class="cat-event-big">전략</div>
+      <div class="cat-card-div">STRATEGY · Event 02</div>
+      <div class="cat-card-name">팀 분업 이벤트</div>
+      <div class="cat-card-desc">누가 어떤 파트를 맡을지 팀이 결정.<br>선택 자체가 경쟁력이다.</div>
     </div>
-    <div class="cat-div-label" style="margin-top:2px;">퍼포먼스 디비전 — 바벨 포함 · 경험자</div>
     <div class="cat-card">
       <div class="cat-card-num">03</div>
-      <div class="cat-card-div">Performance · 2인팀</div>
-      <div class="cat-card-name">남/여<br>혼성 2인</div>
-      <div class="cat-card-desc">남자 1명 + 여자 1명<br>바벨 동작 포함 (데드리프트, 파워클린)</div>
-      <div class="cat-card-price">100,000원</div>
+      <div class="cat-event-big">스킬</div>
+      <div class="cat-card-div">SKILL · Event 03</div>
+      <div class="cat-card-name">기술 동작 테스트</div>
+      <div class="cat-card-desc">정확도와 수행 능력.<br>힘보다 기술이 앞서는 이벤트.</div>
     </div>
-    <div class="cat-card">
+    <div class="cat-card cat-card--final">
       <div class="cat-card-num">04</div>
-      <div class="cat-card-div">Performance · 3인팀</div>
-      <div class="cat-card-name">성별 무관<br>3인 1팀</div>
-      <div class="cat-card-desc">성별 무관<br>바벨 동작 포함 (데드리프트, 파워클린)</div>
-      <div class="cat-card-price">150,000원</div>
+      <div class="cat-event-big">메트콘</div>
+      <div class="cat-card-div">FINAL · Metcon</div>
+      <div class="cat-card-name">파이널 이벤트</div>
+      <div class="cat-card-desc">전원 동시 투입.<br>시즌 최고 강도의 결전.</div>
+      <div class="cat-card-price" style="margin-top:8px;">SEASON 1 FINALE</div>
+    </div>
+  </div>
+
+  <div class="div-compare-wrap">
+    <div class="div-compare">
+      <div class="div-compare-label">디비전 선택</div>
+      <div class="div-compare-grid">
+        <div class="div-item">
+          <div class="div-badge">오픈 DIVISION</div>
+          <div class="div-team">2인팀</div>
+          <div class="div-note">바벨 없음 · 누구나 참가 가능<br>남/남 or 남/여 혼성</div>
+          <div class="div-price">100,000원</div>
+        </div>
+        <div class="div-item">
+          <div class="div-badge">퍼포먼스 DIVISION</div>
+          <div class="div-team">3인팀</div>
+          <div class="div-note">바벨 포함 · 운동 경험자<br>성별 무관</div>
+          <div class="div-price">150,000원</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
