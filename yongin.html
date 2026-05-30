@@ -73,6 +73,20 @@
 
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-in.visible { opacity: 1; transform: none; }
+    .selector-wrap{margin-bottom:20px;}
+    .selector-label{font-family:'Barlow Condensed',sans-serif;font-size:9px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+    .selector-tabs{display:flex;gap:8px;}
+    .stab{flex:1;background:var(--card);border:1px solid rgba(255,255,255,0.07);padding:12px 14px;cursor:pointer;text-align:left;transition:border-color .2s,background .2s;display:flex;flex-direction:column;gap:4px;}
+    .stab:hover:not([disabled]){border-color:var(--school-color);}
+    .stab-main{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;color:rgba(255,255,255,0.4);line-height:1;transition:color .2s;}
+    .stab-sub{font-size:10px;color:rgba(255,255,255,0.22);letter-spacing:1px;transition:color .2s;}
+    .stab.active{border-color:var(--school-color);background:rgb(var(--school-rgb)/.08);}
+    .stab.active .stab-main{color:var(--school-color);}
+    .stab.active .stab-sub{color:rgb(var(--school-rgb)/.55);}
+    .stab[disabled]{opacity:.3;cursor:default;}
+    .roster-tba{background:var(--card);border:1px solid rgba(255,255,255,0.06);padding:28px 20px;text-align:center;}
+    .roster-tba-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-style:italic;font-size:24px;color:rgba(255,255,255,.22);margin-bottom:6px;}
+    .roster-tba-sub{font-size:11px;color:rgba(255,255,255,.2);}
     @media (max-width: 400px) { .hero-school-name{font-size:48px} .hero-confirmed{font-size:32px} }
   </style>
 </head>
@@ -104,9 +118,40 @@
 <div class="section fade-in">
   <div class="section-eyebrow">TEAM INFO</div>
   <div class="section-title">팀 정보</div>
+
+  <div class="selector-wrap">
+    <div class="selector-label">DIVISION</div>
+    <div class="selector-tabs" id="div-tabs">
+      <button class="stab" data-key="open">
+        <span class="stab-main">오픈</span>
+        <span class="stab-sub">2인팀</span>
+      </button>
+      <button class="stab active" data-key="performance">
+        <span class="stab-main">퍼포먼스</span>
+        <span class="stab-sub">3인팀</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="selector-wrap">
+    <div class="selector-label">SEASON</div>
+    <div class="selector-tabs" id="season-tabs">
+      <button class="stab active" data-key="s1">
+        <span class="stab-main">S1</span>
+        <span class="stab-sub">THE OPEN</span>
+      </button>
+      <button class="stab" data-key="s2" disabled>
+        <span class="stab-main">S2</span>
+        <span class="stab-sub">2027 상반기</span>
+      </button>
+      <button class="stab" data-key="s3" disabled>
+        <span class="stab-main">S3</span>
+        <span class="stab-sub">GRAND FINAL</span>
+      </button>
+    </div>
+  </div>
+
   <div class="info-grid">
-    <div class="info-item"><div class="info-item-label">DIVISION</div><div class="info-item-value">퍼포먼스</div></div>
-    <div class="info-item"><div class="info-item-label">SEASON</div><div class="info-item-value">S1 THE OPEN</div></div>
     <div class="info-item"><div class="info-item-label">대회일</div><div class="info-item-value">2026.10.03</div></div>
     <div class="info-item"><div class="info-item-label">장소</div><div class="info-item-value">서울권 박스</div></div>
   </div>
@@ -115,21 +160,7 @@
 <div class="section fade-in">
   <div class="section-eyebrow">ROSTER</div>
   <div class="section-title">선수 명단</div>
-  <div class="member-list">
-    <div class="member-card">
-      <span class="member-role">ENGINE</span>
-      <div class="member-info"><div class="member-name">최성민</div><div class="member-detail">무도학과 4학년</div></div>
-      <span class="captain-badge">CAPTAIN</span>
-    </div>
-    <div class="member-card">
-      <span class="member-role">POWER</span>
-      <div class="member-info"><div class="member-name">강준혁</div><div class="member-detail">무도학과 3학년</div></div>
-    </div>
-    <div class="member-card">
-      <span class="member-role">HYBRID</span>
-      <div class="member-info"><div class="member-name">윤재원</div><div class="member-detail">무도학과 2학년</div></div>
-    </div>
-  </div>
+  <div id="member-list"></div>
 </div>
 
 <div class="bottom-bar fade-in">
@@ -143,6 +174,35 @@
 </div>
 
 <script>
+const ROSTERS = {
+  open: [
+    { name: "최성민", role: "ENGINE", detail: "사회체육학과 4학년", captain: true },
+    { name: "강준혁", role: "POWER", detail: "사회체육학과 3학년", captain: false }
+  ],
+  performance: [
+    { name: "최성민", role: "ENGINE", detail: "사회체육학과 4학년", captain: true },
+    { name: "강준혁", role: "POWER", detail: "사회체육학과 3학년", captain: false },
+    { name: "윤재원", role: "HYBRID", detail: "사회체육학과 2학년", captain: false }
+  ]
+};
+let selDiv = 'performance', selSeason = 's1';
+function renderRoster() {
+  const el = document.getElementById('member-list');
+  if (selSeason !== 's1') {
+    el.innerHTML = '<div class="roster-tba"><div class="roster-tba-title">COMING SOON</div><div class="roster-tba-sub">시즌 선수단 구성 예정</div></div>';
+    return;
+  }
+  el.innerHTML = ROSTERS[selDiv].map(m => `<div class="member-card"><span class="member-role">${m.role}</span><div class="member-info"><div class="member-name">${m.name}</div><div class="member-detail">${m.detail}</div></div>${m.captain ? '<span class="captain-badge">CAPTAIN</span>' : ''}</div>`).join('');
+}
+document.querySelectorAll('#div-tabs .stab').forEach(b => b.addEventListener('click', function() {
+  document.querySelectorAll('#div-tabs .stab').forEach(x => x.classList.remove('active'));
+  this.classList.add('active'); selDiv = this.dataset.key; renderRoster();
+}));
+document.querySelectorAll('#season-tabs .stab:not([disabled])').forEach(b => b.addEventListener('click', function() {
+  document.querySelectorAll('#season-tabs .stab').forEach(x => x.classList.remove('active'));
+  this.classList.add('active'); selSeason = this.dataset.key; renderRoster();
+}));
+renderRoster();
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
 }, { threshold: 0.1 });
