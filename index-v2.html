@@ -302,9 +302,8 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
 <nav>
   <a href="#" class="nav-logo" style="font-size:17px;letter-spacing:0.5px;">캠퍼스 <span>스로우다운</span></a>
   <div class="nav-links">
-    <a href="#hook">대회 소개</a>
-    <a href="#categories">참가 부문</a>
-    <a href="#pricing">참가비</a>
+    <a href="#categories">대회 종목</a>
+    <a href="#register">참가 신청</a>
     <a href="#status">신청현황</a>
     <a href="#faq">FAQ</a>
   </div>
@@ -312,10 +311,8 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
   <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#hook" onclick="closeMenu()">대회 소개</a>
-  <a href="#concept" onclick="closeMenu()">대회 개념</a>
-  <a href="#categories" onclick="closeMenu()">참가 부문</a>
-  <a href="#pricing" onclick="closeMenu()">참가비</a>
+  <a href="#categories" onclick="closeMenu()">대회 종목</a>
+  <a href="#register" onclick="closeMenu()">참가 신청</a>
   <a href="#status" onclick="closeMenu()">신청현황</a>
   <a href="#faq" onclick="closeMenu()">FAQ</a>
   <a href="#register" onclick="closeMenu()">참가 신청하기 →</a>
@@ -333,6 +330,7 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
     <div class="hero-season">SEASON 01</div>
     <div class="hero-title">CAMPUS<br>THROWDOWN</div>
     <div class="hero-sub-ko">캠퍼스 스로우다운</div>
+    <div style="font-size:12px;color:rgba(216,240,228,0.5);line-height:1.7;margin-bottom:20px;word-break:keep-all;">학교 이름을 등에 지고 경쟁하라.<br>전국 대학 간 기능체력 팀 대회 · 2026</div>
     <div class="hero-date">대회까지</div>
     <div class="countdown">
       <div class="cd-block"><span class="cd-num" id="cdDays">--</span><span class="cd-label">일</span></div>
@@ -345,7 +343,7 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
     </div>
     <div class="hero-btns">
       <a href="#register" class="btn-primary">참가 신청 →</a>
-      <a href="#info" class="btn-outline">대회 안내 →</a>
+      <a href="#categories" class="btn-outline">대회 종목 →</a>
     </div>
   </div>
   <div class="hero-scroll">SCROLL</div>
@@ -376,121 +374,6 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
     </div>
   </div>
 </div>
-
-<!-- HOOK -->
-<section id="hook">
-  <div class="hook-bg"></div>
-  <div class="hook-inner">
-    <div class="hook-eyebrow">Campus Throwdown 2026</div>
-    <h2 class="hook-headline">
-      단순한 운동<br>대회가<br><em>아닙니다.</em>
-    </h2>
-    <p class="hook-body">
-      <strong>전국 최고의 대학팀을 찾는 무대.</strong><br><br>
-      캠퍼스 스로우다운는 전국 대학생들이 <strong>학교를 대표해</strong> 출전하는 기능체력(Functional Fitness) 팀 대회입니다.<br><br>
-      로잉머신, 러닝, 케틀벨, 바벨 — 실전 체력의 모든 요소를 팀원과 함께 소화해내야 합니다. 헬스장에서 혼자 하던 운동을 이제 <strong>학교 이름을 걸고</strong> 펼쳐보세요.
-    </p>
-    <div class="hook-stats">
-      <div class="hook-stat">
-        <div class="hook-stat-num"><span>SEASON</span> 01</div>
-        <div class="hook-stat-label">역사적인 첫 개최</div>
-      </div>
-      <div class="hook-stat">
-        <div class="hook-stat-num"><span>20</span>팀</div>
-        <div class="hook-stat-label">선착순 한정 모집</div>
-      </div>
-      <div class="hook-stat">
-        <div class="hook-stat-num"><span>2</span>개</div>
-        <div class="hook-stat-label">디비전 (오픈 · 퍼포먼스)</div>
-      </div>
-      <div class="hook-stat">
-        <div class="hook-stat-num"><span>10.03</span></div>
-        <div class="hook-stat-label">2026년 대회 당일</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONCEPT -->
-<section id="concept">
-  <div class="concept-header">
-    <span class="sec-label">How It Works</span>
-    <h2 class="sec-title">이런 대회입니다</h2>
-    <span class="sec-accent"></span>
-  </div>
-  <div class="concept-cards">
-    <div class="concept-card">
-      <div class="concept-num">CONCEPT 01</div>
-      <div class="concept-title">기능 체력으로<br><em>승부합니다</em></div>
-      <p class="concept-body">단순한 기록 대결이 아닙니다. 실전 체력의 여러 요소를 조합한 이벤트를 팀원과 함께 수행합니다. 얼마나 무거운 것을 드느냐가 아니라, 얼마나 다양한 신체능력을 팀으로 발휘하느냐가 승부를 가릅니다.</p>
-    </div>
-    <div class="concept-card">
-      <div class="concept-num">CONCEPT 02</div>
-      <div class="concept-title">팀으로<br><em>출전합니다</em></div>
-      <p class="concept-body">팀을 구성해 출전합니다. 각 이벤트마다 누가 나설지는 팀이 결정합니다. 개인전인지, 2인 1조인지는 이벤트에 따라 달라집니다. 한 사람의 기량으로 모든 걸 해결할 수 없습니다. 개인 기량의 합과 팀워크, 두 가지가 모두 갖춰져야 최고의 팀이 됩니다.</p>
-    </div>
-    <div class="concept-card">
-      <div class="concept-num">CONCEPT 03</div>
-      <div class="concept-title">학교를 대표해<br><em>출전합니다</em></div>
-      <p class="concept-body">이 대회는 개인전이 아닙니다. 당신이 다니는 학교 이름을 등에 지고 출전합니다. 전국 대학생들이 한 자리에 모여 피지컬로 승부를 겨루는 — 국내 최초 대학 간 기능체력 팀 대회 Season 1의 역사적인 첫 페이지에 당신의 학교 이름을 남기세요.</p>
-      <div class="concept-tags">
-        <span class="concept-tag">학교 대표</span>
-        <span class="concept-tag">대학 간 경쟁</span>
-        <span class="concept-tag">Season 1</span>
-        <span class="concept-tag">국내 최초</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TARGET -->
-<section id="target">
-  <div class="container">
-    <span class="sec-label">Who Is This For</span>
-    <h2 class="sec-title">이런 분께<br>추천합니다</h2>
-    <span class="sec-accent"></span>
-    <div class="target-list">
-      <div class="target-item">
-        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
-        <div>
-          <div class="target-title">헬스장 · 크로스핏 박스를 다니는 대학생</div>
-          <div class="target-desc">꾸준히 운동하고 있지만 대회에 나가본 적 없는 분. 오픈 디비전은 바벨 없이 기능체력 동작만으로 구성됩니다.</div>
-        </div>
-      </div>
-      <div class="target-item">
-        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
-        <div>
-          <div class="target-title">팀으로 무언가에 도전해보고 싶은 분</div>
-          <div class="target-desc">혼자 하던 운동을 넘어, 팀으로서의 체력을 함께 증명하고 싶은 분에게 딱 맞는 대회입니다.</div>
-        </div>
-      </div>
-      <div class="target-item">
-        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
-        <div>
-          <div class="target-title">학교 이름을 걸고 출전해보고 싶은 분</div>
-          <div class="target-desc">학교 대표로 뭔가 해봤으면 했지만 기회가 없었던 분. 이 대회가 바로 그 기회입니다.</div>
-        </div>
-      </div>
-      <div class="target-item">
-        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
-        <div>
-          <div class="target-title">내 체력 수준을 객관적으로 확인하고 싶은 분</div>
-          <div class="target-desc">헬스장을 벗어나 실전에서 내 체력이 어느 수준인지 처음으로 객관적으로 확인할 수 있는 기회.</div>
-        </div>
-      </div>
-      <div class="target-item">
-        <div class="target-check"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)"><polyline points="20,6 9,17 4,12"/></svg></div>
-        <div>
-          <div class="target-title">운동으로 이어지는 새로운 네트워크가 필요한 분</div>
-          <div class="target-desc">전국 대학 운동하는 사람들과 직접 만나는 기회. Season 1 참가자들이 이 커뮤니티의 첫 번째 멤버가 됩니다.</div>
-        </div>
-      </div>
-    </div>
-    <div class="target-note">
-      오픈 디비전은 운동 경력에 상관없이 누구나 참가가 가능합니다.
-    </div>
-  </div>
-</section>
 
 <!-- CATEGORIES -->
 <section id="categories" class="sec-wrap">
@@ -549,100 +432,6 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- BENEFITS -->
-<section id="benefits" class="sec-wrap" style="padding-bottom:0;">
-  <div class="benefits-header">
-    <span class="sec-label">Benefits</span>
-    <h2 class="sec-title">참가하면 받는 것</h2>
-    <span class="sec-accent"></span>
-  </div>
-  <div class="benefits-grid">
-    <div class="benefit-card">
-      <div class="benefit-num">01</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4a2 2 0 0 1-2-2V5h4"/><path d="M18 9h2a2 2 0 0 0 2-2V5h-4"/><path d="M12 17v4"/><path d="M8 21h8"/><path d="M6 5h12v4a6 6 0 0 1-12 0V5z"/></svg></div>
-      <div class="benefit-title">우승팀 트로피 & 메달</div>
-      <div class="benefit-desc">1~3위 팀 공식 시상. Season 1 챔피언으로 기록됩니다.</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-num">02</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg></div>
-      <div class="benefit-title">공식 티셔츠</div>
-      <div class="benefit-desc">캠퍼스 스로우다운 2026 공식 대회 티셔츠 전원 제공.</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-num">03</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-      <div class="benefit-title">참가 확인서</div>
-      <div class="benefit-desc">운영위원회 명의 공식 확인서 이메일 발급.</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-num">04</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
-      <div class="benefit-title">대회 사진</div>
-      <div class="benefit-desc">전문 포토그래퍼 촬영 현장 사진 전원 공유.</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-num">05</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <div class="benefit-title">커뮤니티</div>
-      <div class="benefit-desc">전국 대학 피지컬 커뮤니티 네트워킹 기회.</div>
-    </div>
-    <div class="benefit-card">
-      <div class="benefit-num">06</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="13"/><path d="M8 22V9"/><path d="M16 22V9"/><path d="M3 13h18"/><path d="M7 5l5-3 5 3v4H7z"/></svg></div>
-      <div class="benefit-title">전용 박스</div>
-      <div class="benefit-desc">서울 내 전용 트레이닝 박스에서 진행.</div>
-    </div>
-    <div class="benefit-card" style="grid-column:1/-1;border-top:2px solid var(--accent);">
-      <div class="benefit-num">07</div>
-      <div class="benefit-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg></div>
-      <div class="benefit-title">MVP 어워드</div>
-      <div class="benefit-desc">전 경기를 통틀어 가장 뛰어난 퍼포먼스를 보인 개인 1명에게 수여하는 별도의 시상입니다. 우승팀 여부와 관계없이 선정되며, 캠퍼스 스로우다운 Season 1의 첫 MVP로 기록됩니다.</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing" class="sec-wrap">
-  <div class="container">
-    <span class="sec-label">Pricing</span>
-    <h2 class="sec-title">참가비 안내</h2>
-    <span class="sec-accent"></span>
-    <div class="pricing-cards">
-      <div class="p-card">
-        <div class="p-badge">진행 중</div>
-        <div class="p-round">2인 1팀</div>
-        <div class="p-period">오픈 · 퍼포먼스 공통<br>남/여 혼성</div>
-        <div class="p-amount"><span class="num">100,000</span><span class="unit">원</span></div>
-        <div class="p-per">1인당 <strong>50,000원</strong></div>
-        <div class="p-divider"></div>
-        <div class="p-perks">
-          <div class="p-perk">공식 티셔츠</div>
-          <div class="p-perk">참가 확인서</div>
-          <div class="p-perk">대회 사진</div>
-          <div class="p-perk">트로피·메달</div>
-        </div>
-      </div>
-      <div class="p-card featured">
-        <div class="p-now">모집 중</div>
-        <div class="p-badge">진행 중</div>
-        <div class="p-round">3인 1팀</div>
-        <div class="p-period">오픈 · 퍼포먼스 공통<br>성별 무관</div>
-        <div class="p-amount"><span class="num">150,000</span><span class="unit">원</span></div>
-        <div class="p-per">1인당 <strong>50,000원</strong></div>
-        <div class="p-divider"></div>
-        <div class="p-perks">
-          <div class="p-perk">공식 티셔츠</div>
-          <div class="p-perk">참가 확인서</div>
-          <div class="p-perk">대회 사진</div>
-          <div class="p-perk">트로피·메달</div>
-        </div>
-      </div>
-    </div>
-    <p class="pricing-note">신청 후 7일 이내 입금 · 마감일 기준 미입금 시 자동 취소<br>신청 마감일 7일 전까지 100% 환불 가능</p>
   </div>
 </section>
 
@@ -827,15 +616,6 @@ footer{background:#040a06;border-top:1px solid var(--border);padding:40px 24px 8
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">취소 및 환불은 가능한가요?<span class="faq-icon">+</span></button><div class="faq-a">신청 마감일(9월 19일) 7일 전까지는 100% 환불됩니다. 이후에는 환불이 불가하오니 신중하게 신청해주세요.</div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">당일 관람은 가능한가요?<span class="faq-icon">+</span></button><div class="faq-a">대회 당일 현장 관람은 누구나 무료로 가능합니다. 별도의 관람 신청은 필요하지 않습니다.</div></div>
     </div>
-  </div>
-</section>
-
-<!-- BOTTOM CTA -->
-<section id="bottom-cta">
-  <div class="bottom-cta-bg"></div>
-  <div class="container" style="position:relative;">
-    <h2 class="bottom-cta-title">지금 바로<br><span>참가 신청</span>하세요</h2>
-    <a href="#register" class="btn-primary" style="display:inline-flex;max-width:280px;margin:0 auto;">참가 신청 →</a>
   </div>
 </section>
 
