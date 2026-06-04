@@ -103,7 +103,7 @@
       display: block;
       text-decoration: none;
       position: relative;
-      aspect-ratio: 3/4.4;
+      aspect-ratio: 3/3.8;
       overflow: hidden;
       transition: transform 0.32s ease, box-shadow 0.35s ease;
       cursor: pointer;
@@ -173,10 +173,22 @@
       text-shadow: 0 0 48px rgb(var(--c-rgb) / 0.35);
     }
     .card-confirmed {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-weight: 900; font-style: italic;
-      font-size: clamp(20px, 3vw, 26px);
-      color: var(--c); line-height: 1;
+      font-weight: 700; font-size: 9px; letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--c);
+      border: 1px solid rgb(var(--c-rgb) / 0.45);
+      background: rgb(var(--c-rgb) / 0.1);
+      padding: 3px 8px;
+    }
+    .card-confirmed::before {
+      content: '';
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--c);
+      flex-shrink: 0;
     }
 
     .card-bottom {
@@ -272,7 +284,7 @@
         </div>
         <div class="card-mid">
           <div class="card-school">서울대학교</div>
-          <div class="card-confirmed">참가확정!</div>
+          <div class="card-confirmed">CONFIRMED</div>
         </div>
         <div class="card-bottom">
           <div class="card-teamname">SNU KNIGHTS</div>
@@ -291,7 +303,7 @@
         </div>
         <div class="card-mid">
           <div class="card-school">용인대학교</div>
-          <div class="card-confirmed">참가확정!</div>
+          <div class="card-confirmed">CONFIRMED</div>
         </div>
         <div class="card-bottom">
           <div class="card-teamname">TEAM YONGIN</div>
@@ -310,7 +322,7 @@
         </div>
         <div class="card-mid">
           <div class="card-school">한국체육대학교</div>
-          <div class="card-confirmed">참가확정!</div>
+          <div class="card-confirmed">CONFIRMED</div>
         </div>
         <div class="card-bottom">
           <div class="card-teamname">KNSU ATHLETICS</div>

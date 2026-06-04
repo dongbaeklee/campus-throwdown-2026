@@ -209,9 +209,10 @@ body {
 .s1-watermark {
   position: absolute; right: -10px; bottom: -20px;
   font-family: 'Barlow Condensed', sans-serif; font-style: italic;
-  font-weight: 900; font-size: clamp(160px,45vw,320px);
+  font-weight: 900; font-size: clamp(120px,28vw,240px);
   line-height: 1; color: rgba(0,201,122,0.03);
   user-select: none; pointer-events: none; letter-spacing: -8px;
+  max-width: 100%; overflow: hidden;
 }
 
 .statement {
@@ -432,6 +433,7 @@ body {
 /* ── REVEAL ── */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1 !important; transform: none !important; transition: none !important; } }
 </style>
 </head>
 <body>
